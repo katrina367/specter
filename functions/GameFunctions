@@ -1,0 +1,41 @@
+function GetInventory()
+    remote = events.Inventory
+    return remote:InvokeServer()
+end
+
+function DropItem(int)
+    EquipItem = events:WaitForChild("Equip")
+    DropItem = events:WaitForChild("Drop")
+    args = {[1] = int}
+    EquipItem:InvokeServer(unpack(args))
+    task.wait(0.1)
+    DropItem:InvokeServer(unpack(args))
+end
+
+function EquipItem(int : intvalue)
+    remote = events:WaitForChild("Equip")
+    Toolbar = plr.PlayerGui.Gui.Toolbar
+    args = {[1] = int}
+    remote:InvokeServer(unpack(args))
+end
+
+function GetItem(item : string)
+    foundItem = EquipmentPath:FindFirstChild(item)
+    if foundItem then
+        foundItem.Main.Anchored = true
+        foundItem:SetPrimaryPartCFrame(char.Head.CFrame * CFrame.new(0,0,-3))
+        task.wait(0.2)
+        fireproximityprompt(foundItem.Main.PickupPrompt)
+    end
+end
+
+function PressButton(button : string)
+    Found_button = 0
+    for i, v in ipairs(ImportantGUIS) do
+        if v.Name == button then
+            for _, signals in pairs(getconnections(v.Activated)) do
+                signal:Fire()
+            end
+        end
+    end
+end
