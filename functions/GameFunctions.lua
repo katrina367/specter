@@ -17,7 +17,7 @@ end
 function DropItem(Item : string)
     local EquipItem = events:WaitForChild("Equip")
     local DropItem = events:WaitForChild("Drop")
-    EquipItem:InvokeServer(unpack(FindItemInInventory(Item)))
+    EquipItem:InvokeServer(unpack({FindItemInInventory(Item)}))
     task.wait(0.1)
     DropItem:InvokeServer(unpack({FindItemInInventory(Item)}))
 end
