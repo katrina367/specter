@@ -3,6 +3,7 @@
 Players = game:GetService("Players")
 plr = Players.LocalPlayer
 
+WS = game:GetService("Workspace")
 rep = game:GetService("ReplicatedStorage")
 events = rep.Events
 
@@ -29,5 +30,6 @@ if game.PlaceId == LobbyId then
     print("Worked")
     load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Lobby.lua")
 elseif game.PlaceId == GameId then
+    EquipmentPath = WS.Equipment
     load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Main.lua")
 end
