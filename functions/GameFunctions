@@ -29,8 +29,12 @@ function GetItem(item : string)
     end
 end
 
-function PressButton(button : string)
-    Found_button = 0
+function PutEvidence(button : string)
+    for _, evidence in ipairs(CurrentEvidence) do
+        if evidence == button then
+            return
+        end
+    end
     for i, v in ipairs(ImportantGUIS) do
         if v.Name == button then
             for _, signals in pairs(getconnections(v.Activated)) do
@@ -38,4 +42,14 @@ function PressButton(button : string)
             end
         end
     end
+end
+
+function SendChatMessage()
+    local TSC = game:GetService("TextChatService")
+    local Channel = TSC.TextChannels.RBXGeneral
+    Channel:SendAsync("Where are you? Are you here? How old are you? Can you write in the book? Can you leave a fingerprint? Are you there? Are you a boy? Are you a girl? Anyone here? Can you turn on the lights?")
+end
+
+function TeleportToGhostRoom()
+    Char:SetPrimaryPartCFrame(game.Workspace.Map.emfpart2.CFrame)
 end
