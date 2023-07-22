@@ -3,7 +3,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/ma
 WS = game:GetService("Workspace")
 Char = plr.Character
 
-DropItem(1)
+DropItem("Flashlight")
 
 GetItem("EMF Reader")
 GetItem("Spirit Box")
