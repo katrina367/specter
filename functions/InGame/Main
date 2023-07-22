@@ -1,6 +1,7 @@
-loadstring(game:HttpGet("https://github.com/dazscripts/specter/blob/main/functions/InGame/Lobby"))()
+loadstring(game:HttpGet("https://github.com/dazscripts/specter/blob/main/functions/GameFunctions"))()
 
-Char = plr:WaitForChild("Character")
+WS = game:GetService("Workspace")
+Char = plr.Character
 
 DropItem(1)
 
@@ -10,10 +11,13 @@ GetItem("Book")
 
 local Camera = Workspace.CurrentCamera
 
-Char:SetPrimaryPartCFrame(game:GetService("Workspace").Van.Misc.VanButtonBase.CFrame * CFrame.new(-3,0,0))
+local VAN_BUTTON = WS.Van.Misc.VanButtonBase
+Char:SetPrimaryPartCFrame(VAN_BUTTON.CFrame * CFrame.new(-3,0,0))
 
 task.wait(1)
 
-Camera.CFrame = CFrame.new(Camera.CFrame.Position, game:GetService("Workspace").Van.Misc.VanButtonBase.Position)
+Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
 
-fireproximityprompt(game:GetService("Workspace").Van.Close.VanPrompt)
+task.wait(0.2)
+
+fireproximityprompt(WS.Van.Close.VanPrompt)
