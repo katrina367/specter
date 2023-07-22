@@ -1,6 +1,6 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
-
 Char = plr.Character
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
 
 DropItem("Flashlight")
 
