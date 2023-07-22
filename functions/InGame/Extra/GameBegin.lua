@@ -21,6 +21,8 @@ task.wait(0.2)
 fireproximityprompt(WS.Van.Close.VanPrompt)
 task.wait(1)
 Char:SetPrimaryPartCFrame(VAN_KEY.CFrame * CFrame.new(0,0,3))
+Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_KEY.Position)
+
 fireproximityprompt(VAN_KEY.KeyPrompt)
 EquipItem("EMF Reader")
 task.wait(0.2)
