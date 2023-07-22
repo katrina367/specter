@@ -34,7 +34,7 @@ function GetItem(item : string)
     foundItem = EquipmentPath:FindFirstChild(item)
     if foundItem then
         foundItem.Main.Anchored = true
-        foundItem:SetPrimaryPartCFrame(Char.Head.CFrame * CFrame.new(0,0,-3))
+        foundItem:SetPrimaryPartCFrame(Char.PrimaryPart.CFrame * CFrame.new(0,0,-3))
         task.wait(0.2)
         fireproximityprompt(foundItem.Main.PickupPrompt)
     end
