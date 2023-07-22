@@ -9,23 +9,25 @@ local function FindItemInInventory(Item : string)
     local inv = GetInventory()
     for i, v in ipairs(inv) do
         if v == Item then
-            return [1] = i
+            return i
         end
     end
-end
-
-function DropItem(Item : string)
-    local EquipItem = events:WaitForChild("Equip")
-    local DropItem = events:WaitForChild("Drop")
-    EquipItem:InvokeServer(unpack({FindItemInInventory(Item)}))
-    task.wait(0.1)
-    DropItem:InvokeServer(unpack({FindItemInInventory(Item)}))
 end
 
 function EquipItem(Item : string)
     local remote = events:WaitForChild("Equip")
     local Toolbar = plr.PlayerGui.Gui.Toolbar
-    remote:InvokeServer(unpack({FindItemInInventory(Item)}))
+    local args = {[1] = FindItemInInventory(Item)}
+
+    remote:InvokeServer(unpack(args))
+end
+
+function DropItem(Item : string)
+    local DropItem = events:WaitForChild("Drop")
+    EquipItem(Item)
+    task.wait(0.1)
+    local args = {[1] = FindItemInInventory(Item)}
+    DropItem:InvokeServer(unpack(args))
 end
 
 function GetItem(item : string)
