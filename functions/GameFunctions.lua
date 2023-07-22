@@ -19,13 +19,13 @@ function DropItem(Item : string)
     local DropItem = events:WaitForChild("Drop")
     EquipItem:InvokeServer(unpack(FindItemInInventory(Item)))
     task.wait(0.1)
-    DropItem:InvokeServer(unpack(FindItemInInventory(Item)))
+    DropItem:InvokeServer(unpack({FindItemInInventory(Item)}))
 end
 
 function EquipItem(Item : string)
     local remote = events:WaitForChild("Equip")
     local Toolbar = plr.PlayerGui.Gui.Toolbar
-    remote:InvokeServer(unpack(FindItemInInventory(Item)))
+    remote:InvokeServer(unpack({FindItemInInventory(Item)}))
 end
 
 function GetItem(item : string)
