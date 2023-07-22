@@ -7,7 +7,7 @@ local breath = WS.zed_XESGroupHolder.Head.BreathAttachment.Breath
 local orbEvidence = orb.ChildAdded:Connect(function(child)
     if not table.find(Evidence, "Orbs") then
         table.insert(Evidence, "Orbs")
-        PutEvidence("Orbs")
+        PutEvidence("Ghost Orbs")
         orbEvidence:Disconnect()
     end
 end)
