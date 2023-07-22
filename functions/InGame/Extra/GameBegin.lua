@@ -30,6 +30,8 @@ EquipItem("EMF Reader")
 task.wait(0.2)
 Toggle()
 
+task.wait(5)
+
 TeleportToGhostRoom()
 
 EquipItem("Spirit Box")
