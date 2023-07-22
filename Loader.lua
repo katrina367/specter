@@ -6,7 +6,7 @@ plr = Players.LocalPlayer
 rep = game:GetService("ReplicatedStorage")
 events = rep.Events
 
-local function load(link : string)
+local function load(link)
     loadstring(game:HttpGet(link))()
 end
 
