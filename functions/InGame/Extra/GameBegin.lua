@@ -44,7 +44,7 @@ EquipItem("Book")
 task.wait(0.2)
 DropItem("Book")
 
-for i = 1,3 do
+while true do
     SendChatMessage()
-    task.wait(1)
+    task.wait(2)
 end

@@ -51,7 +51,7 @@ function PutEvidence(button : string)
     end
     for i, v in ipairs(ImportantGUIS) do
         if v.Name == button then
-            for _, signal in pairs(getconnections(v.Activated)) do
+            for _, signal in pairs(getconnections(v.Box.Activated)) do
                 signal:Fire()
             end
         end
