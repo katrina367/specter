@@ -7,7 +7,7 @@ WS = game:GetService("Workspace")
 rep = game:GetService("ReplicatedStorage")
 events = rep.Events
 
-local function load(link)
+function load(link)
     loadstring(game:HttpGet(link))()
 end
 
