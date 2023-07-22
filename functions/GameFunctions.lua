@@ -40,6 +40,10 @@ function GetItem(item : string)
     end
 end
 
+function Toggle()
+    events:WaitForChild("ToggleEquipment"):InvokeServer()
+end
+
 function PutEvidence(button : string)
     for _, evidence in ipairs(CurrentEvidence) do
         if evidence == button then

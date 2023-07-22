@@ -20,3 +20,20 @@ Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
 task.wait(0.2)
 
 fireproximityprompt(WS.Van.Close.VanPrompt)
+
+EquipItem("EMF Reader")
+Toggle()
+
+TeleportToGhostRoom()
+
+EquipItem("Spirit Box")
+Toggle()
+DropItem("Spirit Box")
+
+EquipItem("Book")
+DropItem("Book")
+
+for i = 1,3 do
+    SendChatMessage()
+    task.wait(1)
+end
