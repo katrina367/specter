@@ -9,7 +9,7 @@ local function FindItemInInventory(Item : string)
     local inv = GetInventory()
     for i, v in ipairs(inv) do
         if v == Item then
-            return {[1] = i}
+            return [1] = i
         end
     end
 end
