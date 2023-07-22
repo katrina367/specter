@@ -27,7 +27,7 @@ if game.PlaceId == LobbyId then
 
     SendStartupNotif("Lobby Detected.. Starting")
     print("Worked")
-    load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Lobby")
+    load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Lobby.lua")
 elseif game.PlaceId == GameId then
-    load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Main")
+    load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Main.lua")
 end
