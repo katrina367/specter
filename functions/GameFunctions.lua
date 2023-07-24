@@ -1,6 +1,13 @@
 --!strict
 
+-- // REMOTES \\ --
+
+local InventoryRemote = events:WaitForChild("Inventory")
 local PickupRemote = events:WaitForChild("Pickup")
+local PlaceRemote = events:WaitForChild("PlaceItem")
+
+local root = Char.HumanoidRootPart
+local Ghost = WS:WaitForChild("Ghost").PrimaryPart
 
 local ToolbarHotkeys = {
     [1] = Enum.KeyCode.One,
@@ -10,8 +17,7 @@ local ToolbarHotkeys = {
 }
 
 local function GetInventory()
-    remote = events.Inventory
-    return remote:InvokeServer()
+    return InventoryRemote:InvokeServer()
 end
 
 local function FindItemInInventory(Item : string)
@@ -37,7 +43,7 @@ end
 
 function GetItem(Item : string)
     repeat task.wait(0.1) until not Hunting
-    foundItem = EquipmentPath:FindFirstChild(Item)
+    local foundItem = EquipmentPath:FindFirstChild(Item)
     if foundItem then
         PickupRemote:InvokeServer(foundItem)
         print("Picked up " .. Item)
@@ -72,12 +78,8 @@ function PutEvidence(button : string)
     end
 end
 
-local Ghost = WS:WaitForChild("Ghost").PrimaryPart
-local root = Char.HumanoidRootPart
-
 function PlaceItem(Item : string, PlaceAtCharacter : bool)
     repeat task.wait(0.1) until not Hunting
-    local PlaceRemote = events:WaitForChild("PlaceItem")
     if not PlaceAtCharacter then
         PlacementArgs = {
             [1] = FindItemInInventory(Item),
