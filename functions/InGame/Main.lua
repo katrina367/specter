@@ -1,5 +1,5 @@
 Char = plr.Character
-
+Hunting = false
 ImportantGUIS = {}
 
 for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChildren() do
@@ -8,4 +8,10 @@ for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChi
     end
 end
 
+events.Hunt.OnClientEvent:Connect(function()
+    Hunting = not Hunting
+end)
+
 load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua")
+
+

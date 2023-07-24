@@ -65,6 +65,30 @@ end)
 
 print("INIT: FREEZING")
 
+local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
+    task.wait(0.1)
+    for _, v in pairs(child:GetChildren()) do
+        v:GetPropertyChangedSignal("BrickColor"):Connect(function()
+            local min = 1
+            local max = 4
+            local num = min + (max - min) * math.random(0, 100000) / 100000
+            local str = string.format("%.5f", num)
+
+            task.wait(tonumber(str))
+            local color = v.BrickColor.Color
+
+            if color.r > color.g and color.r > color.b then
+                PutEvidence("Motion")
+            elseif color.b > color.g and color.b > color.r then
+                print("   ---------   Paranormal Motion Not Found   ---------   ")
+                motion:Disconnect()
+            end
+        end)
+    end
+end)
+
+print("INIT: MOTION")
+
 local evidenceModule = require(game:GetService("ReplicatedStorage").Evidences).Ghosts
 
 local function deepCompare(t1, t2)

@@ -1,7 +1,12 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
+local info = TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut)
 
 local function NewTween(part)
-    local info = TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut)
+    if Hunting then
+        local tween = TweenService:Create(Char.PrimaryPart, info, {CFrame = part.CFrame})
+        tween:Play()
+        repeat task.wait() until not Hunting
+    end
     local tween = TweenService:Create(Char.PrimaryPart, info, {CFrame = part.CFrame})
     tween:Play()
 end
@@ -37,6 +42,18 @@ fireproximityprompt(VAN_KEY.KeyPrompt)
 
 task.wait(1)
 
+GetItem("Motion Sensor")
+EquipItem("Motion Sensor")
+
+for i = 1,40 do
+    coroutine.wrap(NewTween)(WS.Ghost.PrimaryPart)
+    task.wait()
+end
+
+PlaceItem(false)
+
+task.wait(1)
+
 coroutine.wrap(NewTween)(WS.Map.TouchParts.Inside.Inside)
 
 task.wait(0.2)
@@ -63,10 +80,10 @@ DropItem("Spirit Box")
 
 EquipItem("Book")
 task.wait(0.2)
-DropItem("Book")
+PlaceItem("Book", true)
 
 task.wait(0.2)
-GetItem("Motion Sensor")
+--GetItem("Motion Sensor")
 GetItem("Crucifix")
 
 EquipItem("EMF Reader")

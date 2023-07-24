@@ -69,6 +69,30 @@ function PutEvidence(button : string)
     end
 end
 
+local Ghost = WS:WaitForChild("Ghost").PrimaryPart
+local root = Char.HumanoidRootPart
+
+function PlaceItem(PlaceAtCharacter : bool)
+    local PlaceRemote = events:WaitForChild("PlaceItem")
+    if not PlaceAtCharacter then
+        PlacementArgs = {
+            [1] = FindItemInInventory(Item),
+            [2] = Ghost.CFrame * CFrame.new(0,-3,0),
+            [3] = workspace:WaitForChild("Terrain"),
+            [4] = Ghost.Position
+        }
+    else
+        PlacementArgs = {
+            [1] = FindItemInInventory(Item),
+            [2] = root.CFrame * CFrame.new(0,-3,0),
+            [3] = workspace:WaitForChild("Terrain"),
+            [4] = root.Position
+        }
+    end
+
+    PlaceRemote:InvokeServer(unpack(PlacementArgs))    
+end
+
 function SendChatMessage()
     local TSC = game:GetService("TextChatService")
     local Channel = TSC.TextChannels.RBXGeneral
