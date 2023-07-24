@@ -39,12 +39,15 @@ task.wait(0.2)
 
 Toggle()
 
-task.wait(5)
+task.spawn(function()
+    for i = 1,10 do
+        Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
+        task.wait(0.1)
+    end
+end)
 
-for i = 1,10 do
-    TeleportToGhostRoom()
-    task.wait(0.1)
-end
+
+task.wait(5)
 
 EquipItem("Spirit Box")
 task.wait(0.2)
