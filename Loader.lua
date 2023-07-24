@@ -30,7 +30,7 @@ elseif plr.PlayerScripts:FindFirstChild("ClientMain").Modules.NotificationManage
         notification:Create("Success", text)
     end
     function FailNotif(text : string)
-        notification:Create("Success", text)
+        notification:Create("Error", text)
     end
 end
 
