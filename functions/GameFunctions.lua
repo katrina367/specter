@@ -31,8 +31,8 @@ function DropItem(Item : string)
     print("Dropped " .. Item)
 end
 
-function GetItem(item : string)
-    foundItem = EquipmentPath:FindFirstChild(item)
+function GetItem(Item : string)
+    foundItem = EquipmentPath:FindFirstChild(Item)
     if foundItem then
         foundItem.Main.Anchored = true
         foundItem:SetPrimaryPartCFrame(Char.PrimaryPart.CFrame * CFrame.new(0,0,-3))
