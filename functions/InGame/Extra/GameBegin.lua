@@ -40,7 +40,7 @@ task.wait(1)
 
 fireproximityprompt(VAN_KEY.KeyPrompt)
 
-task.wait(1)
+task.wait(0.1)
 
 GetItem("Motion Sensor")
 task.wait(0.1)
