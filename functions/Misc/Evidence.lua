@@ -2,17 +2,17 @@ Evidence = {}
 
 local orbs = WS.Orbs
 local fingerprint = WS.Fingerprints
-local breath = Char.Head.BreathAttachment.Breath
+local breath = Char.Head:WaitForChild("BreathAttachment").Breath
 
 local orbEvidence = orbs.ChildAdded:Connect(function(child)
     PutEvidence("Orbs")
 end)
 
-local fingerprintEvidence = fingerprint.ChildAdded:Connect(function(child)
+fingerprint.ChildAdded:Connect(function(child)
     PutEvidence("Fingerprints")
 end)
 
-local freezingEvidence = breath:GetPropertyChangedSignal("Enabled"):Connect(function()
+breath:GetPropertyChangedSignal("Enabled"):Connect(function()
     PutEvidence("Freezing Temperature")
 end)
 
@@ -27,6 +27,7 @@ EquipmentPath.ChildAdded:Connect(function(child)
         end)
     elseif child.Name == "Spirit Box" then
         for _,v in pairs(child.Main.Responses:GetChildren()) do
+            print("INIT SPIRIT BOX RESPONSE: " .. v.Name)
             table.insert(SPIRIT_BOX_RESPONSES, v.Name)
         end
         child.Main.ChildAdded:Connect(function(child)
