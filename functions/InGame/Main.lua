@@ -11,6 +11,4 @@ end
 load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua")
 task.wait(1)
 load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua")
-task.wait(1)
-load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua")
 

@@ -38,6 +38,7 @@ task.spawn(function()
     end
 end)
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua"))()
 
 task.wait(5)
 
