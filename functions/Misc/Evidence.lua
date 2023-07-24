@@ -4,17 +4,23 @@ local orbs = WS.Orbs
 local fingerprint = WS.Fingerprints
 local breath = Char.Head:WaitForChild("BreathAttachment").Breath
 
-local orbEvidence = orbs.ChildAdded:Connect(function(child)
+orbs.ChildAdded:Connect(function(child)
     PutEvidence("Orbs")
 end)
+
+print("INIT: ORBS")
 
 fingerprint.ChildAdded:Connect(function(child)
     PutEvidence("Fingerprints")
 end)
 
+print("INIT: FINGERPRINTS")
+
 breath:GetPropertyChangedSignal("Enabled"):Connect(function()
     PutEvidence("Freezing Temperature")
 end)
+
+print("INIT: FREEZING")
 
 local SPIRIT_BOX_RESPONSES = {}
 
@@ -38,7 +44,9 @@ EquipmentPath.ChildAdded:Connect(function(child)
     end
 end)
 
-local emfEvidence = WS.ChildAdded:Connect(function(child)
+print("INIT: BOOK, SPIRIT BOX")
+
+WS.ChildAdded:Connect(function(child)
     if child.Name == "emfpart5" then
         EquipItem("EMF Reader")
         local CurrentCFrame = Char.PrimaryPart.CFrame
@@ -49,6 +57,8 @@ local emfEvidence = WS.ChildAdded:Connect(function(child)
         PutEvidence("EMF 5")
     end
 end)
+
+print("INIT: EMF")
 
 local evidenceModule = require(game:GetService("ReplicatedStorage").Evidences).Ghosts
 
