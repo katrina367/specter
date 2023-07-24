@@ -15,19 +15,19 @@ end)
 
 print("INIT: FINGERPRINTS")
 
-EquipmentPath.ChildAdded:Connect(function(new)
-    if new.Name == "Book" then
+EquipmentPath.ChildAdded:Connect(function(child)
+    if child.Name == "Book" then
         local book = EquipmentPath.Book
 
         local writingEvidence = book:GetAttributeChangedSignal("Written"):Connect(function()
             PutEvidence("Writing")
         end)
-    elseif new.Name == "Spirit Box" then
+    elseif child.Name == "Spirit Box" then
         task.wait(1)
-        local box = EquipmentPath['Spirit Box']
+        local box = EquipmentPath:FindFirstChild("Spirit Box")
 
-        box.Main.ChildAdded:Connect(function(i)
-            if box.Main.Responses:FindFirstChild(i.Name) then
+        box.Main.ChildAdded:Connect(function(child2)
+            if box.Main.Responses:FindFirstChild(child2.Name) or child2.Name == "Template" then
                 PutEvidence("Spirit Box")
             end
         end)
@@ -117,3 +117,6 @@ function findMatch(evidence, v2)
     return nil
 end
 
+task.spawn(function()
+
+end)
