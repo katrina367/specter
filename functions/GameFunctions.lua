@@ -20,6 +20,7 @@ function EquipItem(Item : string)
     local args = {[1] = FindItemInInventory(Item)}
 
     remote:InvokeServer(unpack(args))
+    print("Equipped " .. Item)
 end
 
 function DropItem(Item : string)
@@ -27,6 +28,8 @@ function DropItem(Item : string)
     task.wait(0.1)
     local args = {[1] = FindItemInInventory(Item)}
     DropItem:InvokeServer(unpack(args))
+    print("Dropped " .. Item)
+
 end
 
 function GetItem(item : string)
@@ -36,11 +39,15 @@ function GetItem(item : string)
         foundItem:SetPrimaryPartCFrame(Char.PrimaryPart.CFrame * CFrame.new(0,0,-3))
         task.wait(0.2)
         fireproximityprompt(foundItem.Main.PickupPrompt)
+        print("Picked up " .. Item)
+
     end
 end
 
 function Toggle()
     events:WaitForChild("ToggleEquipment"):InvokeServer()
+    print("Toggled")
+
 end
 
 function PutEvidence(button : string)
@@ -62,8 +69,10 @@ function SendChatMessage()
     local TSC = game:GetService("TextChatService")
     local Channel = TSC.TextChannels.RBXGeneral
     Channel:SendAsync("Where are you? Are you here? How old are you? Can you write in the book? Can you leave a fingerprint? Are you there? Are you a boy? Are you a girl? Anyone here? Can you turn on the lights?")
+    print("Send Chat Message")
 end
 
 function TeleportToGhostRoom()
     Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
+    print("Teleported to room")
 end
