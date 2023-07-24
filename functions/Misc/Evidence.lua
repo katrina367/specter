@@ -87,8 +87,10 @@ function findMatch(evidence, v2)
     return nil
 end
 
-repeat task.wait(5) until #Evidence == 3
+task.spawn(function()
+    repeat task.wait(5) until #Evidence == 3
 
-print("--------------------------------------------")
-print("All Evidences Found!")
-print("--------------------------------------------")
+    print("--------------------------------------------")
+    print("All Evidences Found!")
+    print("--------------------------------------------")
+end)
