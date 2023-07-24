@@ -43,12 +43,11 @@ fireproximityprompt(VAN_KEY.KeyPrompt)
 task.wait(1)
 
 GetItem("Motion Sensor")
+task.wait(0.3)
 EquipItem("Motion Sensor")
 
-for i = 1,40 do
-    coroutine.wrap(NewTween)(WS.Ghost.PrimaryPart)
-    task.wait()
-end
+coroutine.wrap(NewTween)(WS.Ghost.PrimaryPart)
+task.wait(0.3)
 
 PlaceItem(false)
 
