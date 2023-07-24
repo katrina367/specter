@@ -33,9 +33,7 @@ task.wait(0.2)
 
 NewTween(WS.emfpart2)
 
-task.spawn(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua"))()
-end)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua"))()
 
 task.wait(5)
 
@@ -65,13 +63,13 @@ EquipItem("EMF Reader")
 task.wait(0.2)
 Toggle()
 
-NewTween(WS.emfpart2)
+coroutine.wrap(NewTween)(WS.Map.TouchParts.Inside.Inside)
 
 task.wait(1)
 
-NewTween(WS.Map.TouchParts.Inside.Inside)
+coroutine.wrap(NewTween)(WS.emfpart2)
 
 while true do
-    SendChatMessage()
+    coroutine.wrap(SendChatMessage)()
     task.wait(5)
 end
