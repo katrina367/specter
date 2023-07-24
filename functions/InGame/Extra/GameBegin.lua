@@ -31,12 +31,7 @@ fireproximityprompt(VAN_KEY.KeyPrompt)
 
 task.wait(0.2)
 
-task.spawn(function()
-    for i = 1,10 do
-        Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
-        task.wait(0.1)
-    end
-end)
+NewTween(WS.emfpart2)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua"))()
 
@@ -68,16 +63,13 @@ EquipItem("EMF Reader")
 task.wait(0.2)
 Toggle()
 
+NewTween(WS.emfpart2)
+
 task.wait(1)
 
-Char:SetPrimaryPartCFrame(WS.Map.TouchParts.Inside.Inside.CFrame)
+NewTween(WS.Map.TouchParts.Inside.Inside)
 
-task.spawn(function()
-    for i = 1,10 do
-        Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
-        task.wait(0.1)
-    end
-end)
+
 
 while true do
     SendChatMessage()
