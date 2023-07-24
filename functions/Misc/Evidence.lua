@@ -25,7 +25,7 @@ EquipmentPath.ChildAdded:Connect(function(child)
             PutEvidence("Writing")
         end)
     elseif child.Name == "Spirit Box" then
-        for _,v in pairs(child.Main.Responses:GetChildren()) do
+        for _,v in pairs(child:WaitForChild("Main").Responses:GetChildren()) do
             print("INIT SPIRIT BOX RESPONSE: " .. v.Name)
             table.insert(SPIRIT_BOX_RESPONSES, v.Name)
         end
@@ -36,7 +36,7 @@ EquipmentPath.ChildAdded:Connect(function(child)
         end)
     end
 end)
-
+game:GetService("Workspace").Equipment["Spirit Box"].Main
 print("INIT: BOOK, SPIRIT BOX")
 
 WS.ChildAdded:Connect(function(child)
