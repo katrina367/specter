@@ -10,7 +10,6 @@ TSC = game:GetService("TextChatService")
 
 events = rep.Events
 
-ClientMain = getsenv(game.Players.LocalPlayer.PlayerScripts.ClientMain)
 
 
 
@@ -37,6 +36,7 @@ if game.PlaceId == LobbyId then
     print("Worked")
     load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Lobby.lua")
 elseif game.PlaceId == GameId then
+    ClientMain = getsenv(game.Players.LocalPlayer.PlayerScripts.ClientMain)
     EquipmentPath = WS.Equipment
     load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Main.lua")
 end
