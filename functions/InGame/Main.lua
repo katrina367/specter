@@ -8,7 +8,5 @@ for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChi
     end
 end
 
-load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua")
-task.wait(1)
 load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua")
 

@@ -1,3 +1,6 @@
+load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua")
+task.wait(1)
+
 local Camera = Workspace.CurrentCamera
 
 local VAN_BUTTON = WS.Van.Misc.VanButtonBase
