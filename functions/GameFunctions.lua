@@ -32,7 +32,6 @@ local ToolbarHotkeys = {
     [4] = Enum.KeyCode.Four,
 }
 
-
 function EquipItem(Item : string)
     repeat task.wait(0.1) until not Hunting
     ClientMain.equipTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
@@ -53,14 +52,13 @@ function DropItem(Item : string)
     print("Dropped " .. Item)
 end
 
+local PickupRemote = events:WaitForChild("Pickup")
+
 function GetItem(Item : string)
     repeat task.wait(0.1) until not Hunting
     foundItem = EquipmentPath:FindFirstChild(Item)
     if foundItem then
-        foundItem.Main.Anchored = true
-        foundItem:SetPrimaryPartCFrame(Char.PrimaryPart.CFrame * CFrame.new(0,0,-3))
-        task.wait(0.2)
-        fireproximityprompt(foundItem.Main.PickupPrompt)
+        PickupRemote:InvokeServer(foundItem)
         print("Picked up " .. Item)
     end
 end
@@ -102,7 +100,7 @@ function PlaceItem(Item : string, PlaceAtCharacter : bool)
     if not PlaceAtCharacter then
         PlacementArgs = {
             [1] = FindItemInInventory(Item),
-            [2] = Ghost.CFrame * CFrame.new(0,-3,0),
+            [2] = Ghost.CFrame * CFrame.new(0,-3,-5),
             [3] = workspace:WaitForChild("Terrain"),
             [4] = Ghost.Position
         }
