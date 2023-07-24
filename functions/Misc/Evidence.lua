@@ -15,8 +15,6 @@ end)
 
 print("INIT: FINGERPRINTS")
 
-local SPIRIT_BOX_RESPONSES = {}
-
 EquipmentPath.ChildAdded:Connect(function(new)
     if new.Name == "Book" then
         local book = EquipmentPath.Book
@@ -32,7 +30,6 @@ EquipmentPath.ChildAdded:Connect(function(new)
         end)
     end
 end)
-game:GetService("Workspace").Equipment["Spirit Box"].Main
 
 print("INIT: BOOK, SPIRIT BOX")
 
