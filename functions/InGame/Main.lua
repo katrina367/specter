@@ -8,10 +8,4 @@ for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChi
     end
 end
 
-function NewTween(part)
-    local info = TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut)
-    local tween = TweenService:Create(Char.PrimaryPart, info, {CFrame = part.CFrame})
-    tween:Play()
-end
-
 load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua")
