@@ -73,16 +73,16 @@ GetItem("Spirit Box")
 GetItem("Book")
 
 EquipItem("Spirit Box")
-task.wait(0.2)
+task.wait(0.1)
 Toggle()
-task.wait(0.2)
+task.wait(0.1)
 DropItem("Spirit Box")
 
 EquipItem("Book")
-task.wait(0.2)
+task.wait(0.1)
 PlaceItem("Book",true)
 
-task.wait(0.2)
+task.wait(0.1)
 --GetItem("Motion Sensor")
 --GetItem("Crucifix")
 

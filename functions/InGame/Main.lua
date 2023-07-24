@@ -18,6 +18,8 @@ events.Hunt.OnClientEvent:Connect(function()
     end
 end)
 
+local TSC = game:GetService("TextChatService")
+
 task.spawn(function()
     while true do
         repeat task.wait(0.1) until not Hunting

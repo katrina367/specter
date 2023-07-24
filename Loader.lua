@@ -6,7 +6,6 @@ plr = Players.LocalPlayer
 WS = game:GetService("Workspace")
 rep = game:GetService("ReplicatedStorage")
 TweenService = game:GetService("TweenService")
-TSC = game:GetService("TextChatService")
 
 events = rep.Events
 
