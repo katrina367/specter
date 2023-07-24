@@ -48,14 +48,20 @@ function Toggle()
 end
 
 function PutEvidence(button : string)
-    for _, evidence in ipairs(CurrentEvidence) do
+    for _, evidence in ipairs(Evidence) do
         if evidence == button then
-            return
+            print("   ---------   Failed to put in evidence   ---------")
+            print("   [1]   EVIDENCE: " .. button)
+            print("   [2]   REASON:   " .. "Evidence already entered")            return
         end
     end
     for i, v in ipairs(ImportantGUIS) do
         if v.Name == button then
             for _, signal in pairs(getconnections(v.Box.Activated)) do
+                print("   ---------   Entered Evidence   ---------")
+                print("   [1]   EVIDENCE: " .. button)
+                
+                table.insert(Evidence, button)
                 signal:Fire()
             end
         end

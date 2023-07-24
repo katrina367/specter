@@ -5,27 +5,15 @@ local fingerprint = WS.Fingerprints
 local breath = Char.Head.BreathAttachment.Breath
 
 local orbEvidence = orbs.ChildAdded:Connect(function(child)
-    if not table.find(Evidence, "Orbs") then
-        table.insert(Evidence, "Orbs")
-        PutEvidence("Orbs")
-        orbEvidence:Disconnect()
-    end
+    PutEvidence("Orbs")
 end)
 
 local fingerprintEvidence = fingerprint.ChildAdded:Connect(function(child)
-    if not table.find(Evidence, "Fingerprints") then
-        table.insert(Evidence, "Fingerprints")
-        PutEvidence("Fingerprints")
-        fingerprintEvidence:Disconnect()
-    end
+    PutEvidence("Fingerprints")
 end)
 
 local freezingEvidence = breath:GetPropertyChangedSignal("Enabled"):Connect(function()
-    if not table.find(Evidence, "Freezing Temperature") then
-        table.insert(Evidence, "Freezing Temperature")
-        PutEvidence("Freezing Temperature")
-        freezingEvidence:Disconnect()
-    end
+    PutEvidence("Freezing Temperature")
 end)
 
 EquipmentPath.ChildAdded:Connect(function(child)
@@ -33,28 +21,20 @@ EquipmentPath.ChildAdded:Connect(function(child)
         local book = EquipmentPath.Book
 
         local writingEvidence = book:GetAttributeChangedSignal("Written"):Connect(function()
-            if not table.find(Evidence, "Writing") then
-                table.insert(Evidence, "Writing")
-                PutEvidence("Writing")
-                writingEvidence:Disconnect()
-            end
+            PutEvidence("Writing")
         end)
     end
 end)
 
 local emfEvidence = WS.ChildAdded:Connect(function(child)
     if child.Name == "emfpart5" then
-        if not table.find(Evidence, "EMF 5") then
-            EquipItem("EMF Reader")
-            local CurrentCFrame = Char.PrimaryPart.CFrame
-            task.wait(0.1)
-            Char:SetPrimaryPartCFrame(child.CFrame)
-            task.wait(0.1)
-            Char:SetPrimaryPartCFrame(CurrentCFrame)
-            table.insert(Evidence, "EMF 5")
-            PutEvidence("EMF 5")
-            emfEvidence:Disconnect()
-        end
+        EquipItem("EMF Reader")
+        local CurrentCFrame = Char.PrimaryPart.CFrame
+        task.wait(0.1)
+        Char:SetPrimaryPartCFrame(child.CFrame)
+        task.wait(0.1)
+        Char:SetPrimaryPartCFrame(CurrentCFrame)
+        PutEvidence("EMF 5")
     end
 end)
 
