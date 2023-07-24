@@ -43,12 +43,12 @@ fireproximityprompt(VAN_KEY.KeyPrompt)
 task.wait(1)
 
 GetItem("Motion Sensor")
-task.wait(0.3)
+task.wait(0.1)
 EquipItem("Motion Sensor")
 
 coroutine.wrap(NewTween)(WS.Ghost.PrimaryPart)
 
-task.wait(0.1)
+task.wait(0.05)
 
 PlaceItem("Motion Sensor", false)
 
@@ -56,7 +56,7 @@ task.wait(1)
 
 coroutine.wrap(NewTween)(WS.Map.TouchParts.Inside.Inside)
 
-task.wait(0.2)
+task.wait(0.5)
 
 NewTween(WS.emfpart2)
 
