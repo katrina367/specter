@@ -66,7 +66,7 @@ end)
 print("INIT: FREEZING")
 
 local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
-    task.wait(0.1)
+    task.wait(0.4)
     for _, v in pairs(child:GetChildren()) do
         v:GetPropertyChangedSignal("BrickColor"):Connect(function()
             local min = 1
@@ -81,7 +81,6 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
                 PutEvidence("Motion")
             elseif color.b > color.g and color.b > color.r then
                 print("   ---------   Paranormal Motion Not Found   ---------   ")
-                motion:Disconnect()
             end
         end)
     end

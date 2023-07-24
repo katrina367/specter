@@ -84,17 +84,17 @@ PlaceItem("Book",true)
 
 task.wait(0.2)
 --GetItem("Motion Sensor")
-GetItem("Crucifix")
-
-EquipItem("EMF Reader")
-task.wait(0.2)
-Toggle()
+--GetItem("Crucifix")
 
 coroutine.wrap(NewTween)(WS.Map.TouchParts.Inside.Inside)
 
 task.wait(1)
 
 coroutine.wrap(NewTween)(WS.emfpart2)
+
+EquipItem("EMF Reader")
+task.wait(0.2)
+Toggle()
 
 while true do
     coroutine.wrap(SendChatMessage)()
