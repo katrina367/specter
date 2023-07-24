@@ -10,9 +10,12 @@ end
 
 events.Hunt.OnClientEvent:Connect(function()
     Hunting = not Hunting
-    task.wait(0.3)
-    
-    Char:SetPrimaryPartCFrame(game:GetService("Workspace").Van.Spawn.CFrame)
+        
+    if Hunting then
+        Char:SetPrimaryPartCFrame(WS.Van.Spawn.CFrame)
+    else
+        Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
+    end
 end)
 
 load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua")
