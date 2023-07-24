@@ -27,7 +27,7 @@ EquipmentPath.ChildAdded:Connect(function(new)
         local box = EquipmentPath['Spirit Box']
 
         box.Main.ChildAdded:Connect(function(i)
-            if i:FindFirstChild(child.Name) then
+            if box.Main.Responses:FindFirstChild(i.Name) then
                 PutEvidence("Spirit Box")
             end
         end)
@@ -65,6 +65,8 @@ end)
 
 print("INIT: FREEZING")
 
+local detected = false
+
 local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
     child.ChildAdded:Connect(function(GridBlock)
         GridBlock:GetPropertyChangedSignal("BrickColor"):Connect(function()
@@ -74,12 +76,18 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
             local str = string.format("%.5f", num)
 
             task.wait(tonumber(str))
-            local color = v.BrickColor.Color
+            local color = v.Color
 
             if color.r > color.g and color.r > color.b then
+                if not detected then detected = true else return end
                 PutEvidence("Motion")
+                task.wait(10)
+                detected = false
             elseif color.b > color.g and color.b > color.r then
+                if not detected then detected = true else return end
                 print("   ---------   Paranormal Motion Not Found   ---------   ")
+                task.wait(10)
+                detected = false
             end
         end)
     end)
