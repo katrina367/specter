@@ -66,9 +66,8 @@ end)
 print("INIT: FREEZING")
 
 local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
-    task.wait(0.4)
-    for _, v in pairs(child:GetChildren()) do
-        v:GetPropertyChangedSignal("BrickColor"):Connect(function()
+    child.ChildAdded:Connect(function(GridBlock)
+        GridBlock:GetPropertyChangedSignal("BrickColor"):Connect(function()
             local min = 1
             local max = 4
             local num = min + (max - min) * math.random(0, 100000) / 100000
@@ -83,7 +82,7 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
                 print("   ---------   Paranormal Motion Not Found   ---------   ")
             end
         end)
-    end
+    end)
 end)
 
 print("INIT: MOTION")

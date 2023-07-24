@@ -1,8 +1,15 @@
 --!strict
 
+local PickupRemote = events:WaitForChild("Pickup")
 
+local ToolbarHotkeys = {
+    [1] = Enum.KeyCode.One,
+    [2] = Enum.KeyCode.Two,
+    [3] = Enum.KeyCode.Three,
+    [4] = Enum.KeyCode.Four,
+}
 
-function GetInventory()
+local function GetInventory()
     remote = events.Inventory
     return remote:InvokeServer()
 end
@@ -16,34 +23,10 @@ local function FindItemInInventory(Item : string)
     end
 end
 
-function EquipItemOld(Item : string)
-    local remote = events:WaitForChild("Equip")
-    local Toolbar = plr.PlayerGui.Gui.Toolbar
-    local args = {[1] = FindItemInInventory(Item)}
-
-    remote:InvokeServer(unpack(args))
-    print("Equipped " .. Item)
-end
-
-local ToolbarHotkeys = {
-    [1] = Enum.KeyCode.One,
-    [2] = Enum.KeyCode.Two,
-    [3] = Enum.KeyCode.Three,
-    [4] = Enum.KeyCode.Four,
-}
-
 function EquipItem(Item : string)
     repeat task.wait(0.1) until not Hunting
     ClientMain.equipTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
     print("Equipped " .. Item)
-end
-
-function DropItemOld(Item : string)
-    local DropItem = events:WaitForChild("Drop")
-    task.wait(0.1)
-    local args = {[1] = FindItemInInventory(Item)}
-    DropItem:InvokeServer(unpack(args))
-    print("Dropped " .. Item)
 end
 
 function DropItem(Item : string)
@@ -51,8 +34,6 @@ function DropItem(Item : string)
     ClientMain.dropTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
     print("Dropped " .. Item)
 end
-
-local PickupRemote = events:WaitForChild("Pickup")
 
 function GetItem(Item : string)
     repeat task.wait(0.1) until not Hunting
@@ -114,13 +95,4 @@ function PlaceItem(Item : string, PlaceAtCharacter : bool)
     end
 
     PlaceRemote:InvokeServer(unpack(PlacementArgs))    
-end
-
-function SendChatMessage()
-
-end
-
-function TeleportToGhostRoom()
-    Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
-    print("Teleported to room")
 end

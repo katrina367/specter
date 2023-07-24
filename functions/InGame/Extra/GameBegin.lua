@@ -96,4 +96,3 @@ EquipItem("EMF Reader")
 task.wait(0.2)
 Toggle()
 
-local Channel = TSC.TextChannels.RBXGeneral

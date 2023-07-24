@@ -19,6 +19,7 @@ events.Hunt.OnClientEvent:Connect(function()
 end)
 
 local TSC = game:GetService("TextChatService")
+local Channel = TSC.TextChannels.RBXGeneral
 
 task.spawn(function()
     while true do
