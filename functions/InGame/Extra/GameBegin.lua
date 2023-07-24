@@ -33,7 +33,9 @@ task.wait(0.2)
 
 NewTween(WS.emfpart2)
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua"))()
+task.spawn(function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua"))()
+end)
 
 task.wait(5)
 
@@ -68,8 +70,6 @@ NewTween(WS.emfpart2)
 task.wait(1)
 
 NewTween(WS.Map.TouchParts.Inside.Inside)
-
-
 
 while true do
     SendChatMessage()
