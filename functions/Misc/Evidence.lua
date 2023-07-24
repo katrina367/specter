@@ -16,12 +16,23 @@ local freezingEvidence = breath:GetPropertyChangedSignal("Enabled"):Connect(func
     PutEvidence("Freezing Temperature")
 end)
 
+local SPIRIT_BOX_RESPONSES = {}
+
 EquipmentPath.ChildAdded:Connect(function(child)
     if child.Name == "Book" then
         local book = EquipmentPath.Book
 
         local writingEvidence = book:GetAttributeChangedSignal("Written"):Connect(function()
             PutEvidence("Writing")
+        end)
+    elseif child.Name == "Spirit Box" then
+        for _,v in pairs(child.Main.Responses:GetChildren()) do
+            table.insert(SPIRIT_BOX_RESPONSES, v.Name)
+        end
+        child.Main.ChildAdded:Connect(function(child)
+            if table.find(SPIRIT_BOX_RESPONSES, child.Name) then
+                PutEvidence("Spirit Box")
+            end
         end)
     end
 end)
