@@ -1,4 +1,5 @@
-load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua")
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
+
 task.wait(1)
 
 local Camera = Workspace.CurrentCamera
@@ -28,11 +29,7 @@ task.wait(1)
 
 fireproximityprompt(VAN_KEY.KeyPrompt)
 
-EquipItem("EMF Reader")
-
 task.wait(0.2)
-
-Toggle()
 
 task.spawn(function()
     for i = 1,10 do
