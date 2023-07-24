@@ -45,7 +45,12 @@ end)
 local emfEvidence = WS.ChildAdded:Connect(function(child)
     if child.Name == "emfpart5" then
         if not table.find(Evidence, "EMF 5") then
+            EquipItem("EMF Reader")
+            local CurrentCFrame = Char.PrimaryPart.CFrame
+            task.wait(0.1)
             Char:SetPrimaryPartCFrame(child.CFrame)
+            task.wait(0.1)
+            Char:SetPrimaryPartCFrame(CurrentCFrame)
             table.insert(Evidence, "EMF 5")
             PutEvidence("EMF 5")
             emfEvidence:Disconnect()

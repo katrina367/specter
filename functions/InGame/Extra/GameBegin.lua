@@ -58,5 +58,5 @@ DropItem("Book")
 
 while true do
     SendChatMessage()
-    task.wait(2)
+    task.wait(5)
 end
