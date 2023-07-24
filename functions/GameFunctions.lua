@@ -29,7 +29,6 @@ function DropItem(Item : string)
     local args = {[1] = FindItemInInventory(Item)}
     DropItem:InvokeServer(unpack(args))
     print("Dropped " .. Item)
-
 end
 
 function GetItem(item : string)
@@ -40,14 +39,12 @@ function GetItem(item : string)
         task.wait(0.2)
         fireproximityprompt(foundItem.Main.PickupPrompt)
         print("Picked up " .. Item)
-
     end
 end
 
 function Toggle()
     events:WaitForChild("ToggleEquipment"):InvokeServer()
     print("Toggled")
-
 end
 
 function PutEvidence(button : string)
