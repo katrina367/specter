@@ -46,6 +46,10 @@ GetItem("Motion Sensor")
 task.wait(0.1)
 EquipItem("Motion Sensor")
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua"))()
+
+task.wait(5)
+
 Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,0,-3))
 
 task.wait(0.05)
@@ -59,10 +63,6 @@ coroutine.wrap(NewTween)(WS.Map.TouchParts.Inside.Inside)
 task.wait(0.5)
 
 NewTween(WS.emfpart2)
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua"))()
-
-task.wait(5)
 
 EquipItem("Flashlight")
 task.wait(0.1)

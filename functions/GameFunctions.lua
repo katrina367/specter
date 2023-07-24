@@ -81,7 +81,7 @@ function PlaceItem(Item : string, PlaceAtCharacter : bool)
     if not PlaceAtCharacter then
         PlacementArgs = {
             [1] = FindItemInInventory(Item),
-            [2] = Ghost.CFrame * CFrame.new(0,-3,-3),
+            [2] = Ghost.CFrame * CFrame.new(0,-3,-4),
             [3] = workspace:WaitForChild("Terrain"),
             [4] = Ghost.Position
         }
