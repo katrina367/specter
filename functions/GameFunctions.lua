@@ -65,5 +65,5 @@ function SendChatMessage()
 end
 
 function TeleportToGhostRoom()
-    Char:SetPrimaryPartCFrame(game.Workspace.emfpart2.CFrame)
+    Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
 end
