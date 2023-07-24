@@ -17,26 +17,23 @@ print("INIT: FINGERPRINTS")
 
 local SPIRIT_BOX_RESPONSES = {}
 
-EquipmentPath.ChildAdded:Connect(function(child)
-    if child.Name == "Book" then
+EquipmentPath.ChildAdded:Connect(function(new)
+    if new.Name == "Book" then
         local book = EquipmentPath.Book
 
         local writingEvidence = book:GetAttributeChangedSignal("Written"):Connect(function()
             PutEvidence("Writing")
         end)
-    elseif child.Name == "Spirit Box" then
-        for _,v in pairs(child:WaitForChild("Main").Responses:GetChildren()) do
-            print("INIT SPIRIT BOX RESPONSE: " .. v.Name)
-            table.insert(SPIRIT_BOX_RESPONSES, v.Name)
-        end
-        child.Main.ChildAdded:Connect(function(child)
-            if table.find(SPIRIT_BOX_RESPONSES, child.Name) then
+    elseif new.Name == "Spirit Box" then
+        new.Main.ChildAdded:Connect(function(i)
+            if i:FindFirstChild(child.Name) then
                 PutEvidence("Spirit Box")
             end
         end)
     end
 end)
 game:GetService("Workspace").Equipment["Spirit Box"].Main
+
 print("INIT: BOOK, SPIRIT BOX")
 
 WS.ChildAdded:Connect(function(child)
