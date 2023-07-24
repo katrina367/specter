@@ -7,7 +7,7 @@ local breath = WS.zed_XESGroupHolder.Head.BreathAttachment.Breath
 local orbEvidence = orb.ChildAdded:Connect(function(child)
     if not table.find(Evidence, "Orbs") then
         table.insert(Evidence, "Orbs")
-        PutEvidence("Ghost Orbs")
+        PutEvidence("Orbs")
         orbEvidence:Disconnect()
     end
 end)
@@ -30,10 +30,22 @@ end)
 
 local evidenceModule = require(game:GetService("ReplicatedStorage").Evidences).Ghosts
 
-for _, v in ipairs(evidenceModule) do
-    for _, v2 in ipairs(v) do
-        for _, CurrentEvidence in ipairs(getgenv().Evidence) do
-            if CurrentEvidence 
+local function deepCompare(t1, t2)
+    local lookup_table = {}
+    for i, v in ipairs(t1) do
+        lookup_table[v] = true
+    end
+    for i, v in ipairs(t2) do
+        if not lookup_table[v] then return false end
+    end
+    return true
+end
+
+function findMatch(evidence, v2)
+    for ghost, evidences in pairs(v2) do
+        if deepCompare(evidence, evidences) then
+            return ghost
         end
     end
+    return nil
 end
