@@ -2,7 +2,7 @@ Evidence = {}
 
 local orbs = WS.Orbs
 local fingerprint = WS.Fingerprints
-local breath = WS.zed_XESGroupHolder.Head.BreathAttachment.Breath
+local breath = Char.Head.BreathAttachment.Breath
 
 local orbEvidence = orb.ChildAdded:Connect(function(child)
     if not table.find(Evidence, "Orbs") then
