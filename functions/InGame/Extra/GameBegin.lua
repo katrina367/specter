@@ -1,5 +1,5 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
-local info = TweenInfo.new(0.1, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut)
+local info = TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut)
 
 local function NewTween(part)
     if Hunting then
@@ -47,7 +47,8 @@ task.wait(0.3)
 EquipItem("Motion Sensor")
 
 coroutine.wrap(NewTween)(WS.Ghost.PrimaryPart)
-task.wait(0.3)
+
+task.wait(0.1)
 
 PlaceItem(false)
 
@@ -79,7 +80,7 @@ DropItem("Spirit Box")
 
 EquipItem("Book")
 task.wait(0.2)
-PlaceItem("Book", true)
+PlaceItem(true)
 
 task.wait(0.2)
 --GetItem("Motion Sensor")
