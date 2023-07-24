@@ -17,7 +17,7 @@ local function FindItemInInventory(Item : string)
     end
 end
 
-function EquipItem(Item : string)
+function EquipItemOld(Item : string)
     local remote = events:WaitForChild("Equip")
     local Toolbar = plr.PlayerGui.Gui.Toolbar
     local args = {[1] = FindItemInInventory(Item)}
@@ -26,11 +26,29 @@ function EquipItem(Item : string)
     print("Equipped " .. Item)
 end
 
-function DropItem(Item : string)
+local ToolbarHotkeys = {
+    [1] = Enum.KeyCode.One,
+    [2] = Enum.KeyCode.Two,
+    [3] = Enum.KeyCode.Three,
+    [4] = Enum.KeyCode.Four,
+}
+
+
+function EquipItem(Item : string)
+    ClientMain.equipTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
+    print("Equipped " .. Item)
+end
+
+function DropItemOld(Item : string)
     local DropItem = events:WaitForChild("Drop")
     task.wait(0.1)
     local args = {[1] = FindItemInInventory(Item)}
     DropItem:InvokeServer(unpack(args))
+    print("Dropped " .. Item)
+end
+
+function DropItem(Item : string)
+    ClientMain.dropTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
     print("Dropped " .. Item)
 end
 

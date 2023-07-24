@@ -10,6 +10,10 @@ TSC = game:GetService("TextChatService")
 
 events = rep.Events
 
+ClientMain = getsenv(game.Players.LocalPlayer.PlayerScripts.ClientMain)
+
+
+
 function load(link)
     loadstring(game:HttpGet(link))()
 end
