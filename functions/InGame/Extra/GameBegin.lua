@@ -97,10 +97,3 @@ task.wait(0.2)
 Toggle()
 
 local Channel = TSC.TextChannels.RBXGeneral
-
-while true do
-    repeat task.wait(0.1) until not Hunting
-    Channel:SendAsync("Where are you? Are you here? How old are you? Can you write in the book? Can you leave a fingerprint? Are you there? Are you a boy? Are you a girl? Anyone here? Can you turn on the lights?")
-    print("Send Chat Message")
-    task.wait(5)
-end
