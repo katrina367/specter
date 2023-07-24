@@ -35,6 +35,10 @@ task.wait(1)
 
 fireproximityprompt(VAN_KEY.KeyPrompt)
 
+task.wait(1)
+
+coroutine.wrap(NewTween)(WS.Map.TouchParts.Inside.Inside)
+
 task.wait(0.2)
 
 NewTween(WS.emfpart2)
