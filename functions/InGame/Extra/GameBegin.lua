@@ -71,6 +71,7 @@ EquipItem("EMF Reader")
 task.wait(0.2)
 Toggle()
 
+task.wait(1)
 
 Char:SetPrimaryPartCFrame(WS.Map.TouchParts.Inside.Inside.CFrame)
 
