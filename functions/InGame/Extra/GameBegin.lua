@@ -30,6 +30,8 @@ fireproximityprompt(VAN_KEY.KeyPrompt)
 
 EquipItem("EMF Reader")
 
+Char:SetPrimaryPartCFrame(WS.Map.TouchParts.Inside.Inside.CFrame)
+
 task.wait(0.2)
 
 Toggle()
@@ -62,6 +64,11 @@ DropItem("Spirit Box")
 EquipItem("Book")
 task.wait(0.2)
 DropItem("Book")
+
+task.wait(0.2)
+EquipItem("EMF Reader")
+task.wait(0.2)
+Toggle()
 
 while true do
     SendChatMessage()

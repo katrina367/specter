@@ -38,11 +38,18 @@ print("INIT: BOOK, SPIRIT BOX")
 
 WS.ChildAdded:Connect(function(child)
     if child.Name == "emfpart5" then
-        EquipItem("EMF Reader")
+        if not Char:FindFirstChild("Tool") then
+            EquipItem("EMF Reader")
+        else
+            EquipItem("EMF Reader")
+            task.wait(0.1)
+            EquipItem("EMF Reader")
+        end
+        task.wait(1)
         local CurrentCFrame = Char.PrimaryPart.CFrame
         task.wait(0.1)
         Char:SetPrimaryPartCFrame(child.CFrame)
-        task.wait(0.1)
+        task.wait(1)
         Char:SetPrimaryPartCFrame(CurrentCFrame)
         PutEvidence("EMF 5")
     end
@@ -79,3 +86,9 @@ function findMatch(evidence, v2)
     end
     return nil
 end
+
+repeat task.wait(5) until #Evidence == 3
+
+print("--------------------------------------------")
+print("All Evidences Found!")
+print("--------------------------------------------")
