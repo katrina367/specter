@@ -35,6 +35,7 @@ local ToolbarHotkeys = {
 
 
 function EquipItem(Item : string)
+    repeat task.wait(0.1) until not Hunting
     ClientMain.equipTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
     print("Equipped " .. Item)
 end
@@ -48,11 +49,13 @@ function DropItemOld(Item : string)
 end
 
 function DropItem(Item : string)
+    repeat task.wait(0.1) until not Hunting
     ClientMain.dropTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
     print("Dropped " .. Item)
 end
 
 function GetItem(Item : string)
+    repeat task.wait(0.1) until not Hunting
     foundItem = EquipmentPath:FindFirstChild(Item)
     if foundItem then
         foundItem.Main.Anchored = true
@@ -64,6 +67,7 @@ function GetItem(Item : string)
 end
 
 function Toggle()
+    repeat task.wait(0.1) until not Hunting
     events:WaitForChild("ToggleEquipment"):InvokeServer()
     print("Toggled")
 end
@@ -94,6 +98,7 @@ local Ghost = WS:WaitForChild("Ghost").PrimaryPart
 local root = Char.HumanoidRootPart
 
 function PlaceItem(Item : string, PlaceAtCharacter : bool)
+    repeat task.wait(0.1) until not Hunting
     local PlaceRemote = events:WaitForChild("PlaceItem")
     if not PlaceAtCharacter then
         PlacementArgs = {
@@ -115,6 +120,7 @@ function PlaceItem(Item : string, PlaceAtCharacter : bool)
 end
 
 function SendChatMessage()
+    repeat task.wait(0.1) until not Hunting
     Channel:SendAsync("Where are you? Are you here? How old are you? Can you write in the book? Can you leave a fingerprint? Are you there? Are you a boy? Are you a girl? Anyone here? Can you turn on the lights?")
     print("Send Chat Message")
 end
