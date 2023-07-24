@@ -76,7 +76,7 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
             local str = string.format("%.5f", num)
 
             task.wait(tonumber(str))
-            local color = v.BrickColor.Color
+            local color = GridBlock.BrickColor.Color
 
             if color.r > color.g and color.r > color.b then
                 if not detected then detected = true else return end
