@@ -50,7 +50,7 @@ coroutine.wrap(NewTween)(WS.Ghost.PrimaryPart)
 
 task.wait(0.1)
 
-PlaceItem(false)
+PlaceItem(true)
 
 task.wait(1)
 
