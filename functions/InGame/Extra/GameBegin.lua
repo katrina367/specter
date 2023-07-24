@@ -50,7 +50,7 @@ coroutine.wrap(NewTween)(WS.Ghost.PrimaryPart)
 
 task.wait(0.1)
 
-PlaceItem("Motion Sensor", true)
+PlaceItem("Motion Sensor", false)
 
 task.wait(1)
 
