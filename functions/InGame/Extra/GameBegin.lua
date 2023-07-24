@@ -1,11 +1,3 @@
-EquipItem("Flashlight")
-task.wait(0.1)
-DropItem("Flashlight")
-
-GetItem("EMF Reader")
-GetItem("Spirit Box")
-GetItem("Book")
-
 local Camera = Workspace.CurrentCamera
 
 local VAN_BUTTON = WS.Van.Misc.VanButtonBase
@@ -48,6 +40,14 @@ end)
 
 
 task.wait(5)
+
+EquipItem("Flashlight")
+task.wait(0.1)
+DropItem("Flashlight")
+
+GetItem("EMF Reader")
+GetItem("Spirit Box")
+GetItem("Book")
 
 EquipItem("Spirit Box")
 task.wait(0.2)
