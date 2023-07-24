@@ -23,7 +23,10 @@ EquipmentPath.ChildAdded:Connect(function(new)
             PutEvidence("Writing")
         end)
     elseif new.Name == "Spirit Box" then
-        new.Main.ChildAdded:Connect(function(i)
+        task.wait(1)
+        local box = EquipmentPath['Spirit Box']
+
+        box.Main.ChildAdded:Connect(function(i)
             if i:FindFirstChild(child.Name) then
                 PutEvidence("Spirit Box")
             end
