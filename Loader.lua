@@ -5,6 +5,8 @@ plr = Players.LocalPlayer
 
 WS = game:GetService("Workspace")
 rep = game:GetService("ReplicatedStorage")
+TweenService = game:GetService("TweenService")
+
 events = rep.Events
 
 function load(link)
