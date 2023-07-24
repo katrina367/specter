@@ -76,13 +76,15 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
             local str = string.format("%.5f", num)
 
             task.wait(tonumber(str))
-            local color = GridBlock.BrickColor.Color
+            local color = v.BrickColor.Color
 
             if color.r > color.g and color.r > color.b then
+                if not detected then detected = true else return end
                 PutEvidence("Motion")
                 task.wait(10)
                 detected = false
             elseif color.b > color.g and color.b > color.r then
+                if not detected then detected = true else return end
                 print("   ---------   Paranormal Motion Not Found   ---------   ")
                 task.wait(10)
                 detected = false
