@@ -46,7 +46,7 @@ GetItem("Motion Sensor")
 task.wait(0.1)
 EquipItem("Motion Sensor")
 
-coroutine.wrap(NewTween)(WS.Ghost.PrimaryPart)
+Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart * CFrame.new(0,0,-3))
 
 task.wait(0.05)
 
