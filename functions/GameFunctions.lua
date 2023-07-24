@@ -1,5 +1,8 @@
 --!strict
 
+local Channel = TSC.TextChannels.RBXGeneral
+
+
 function GetInventory()
     remote = events.Inventory
     return remote:InvokeServer()
@@ -72,7 +75,7 @@ end
 local Ghost = WS:WaitForChild("Ghost").PrimaryPart
 local root = Char.HumanoidRootPart
 
-function PlaceItem(PlaceAtCharacter : bool)
+function PlaceItem(Item : string, PlaceAtCharacter : bool)
     local PlaceRemote = events:WaitForChild("PlaceItem")
     if not PlaceAtCharacter then
         PlacementArgs = {
@@ -94,8 +97,6 @@ function PlaceItem(PlaceAtCharacter : bool)
 end
 
 function SendChatMessage()
-    local TSC = game:GetService("TextChatService")
-    local Channel = TSC.TextChannels.RBXGeneral
     Channel:SendAsync("Where are you? Are you here? How old are you? Can you write in the book? Can you leave a fingerprint? Are you there? Are you a boy? Are you a girl? Anyone here? Can you turn on the lights?")
     print("Send Chat Message")
 end

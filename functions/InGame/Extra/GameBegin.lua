@@ -50,7 +50,7 @@ coroutine.wrap(NewTween)(WS.Ghost.PrimaryPart)
 
 task.wait(0.1)
 
-PlaceItem(true)
+PlaceItem("Motion Sensor", true)
 
 task.wait(1)
 
@@ -80,7 +80,7 @@ DropItem("Spirit Box")
 
 EquipItem("Book")
 task.wait(0.2)
-PlaceItem(true)
+PlaceItem("Book",true)
 
 task.wait(0.2)
 --GetItem("Motion Sensor")
