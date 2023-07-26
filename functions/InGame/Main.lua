@@ -25,6 +25,11 @@ events.Hunt.OnClientEvent:Connect(function()
     if Hunting then
         repeat task.wait() until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or Hunting == false
         if not Hunting then return end
+        if EquipmentPath:FindFirstChild("Crucifix") then
+            GetItem("Crucifix")
+            EquipItem("Crucifix")
+            task.wait(0.1)
+            PlaceItem("Crucifix")
         repeat Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,10,0)) task.wait() until Hunting == false
     else
         task.wait(0.3)

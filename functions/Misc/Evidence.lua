@@ -81,11 +81,13 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
             if color.r > color.g and color.r > color.b then
                 if not detected then detected = true else return end
                 PutEvidence("Motion")
+                AI_EVIDENCE.Motion = true
                 task.wait(10)
                 detected = false
             elseif color.b > color.g and color.b > color.r then
                 if not detected then detected = true else return end
                 print("   ---------   Paranormal Motion Not Found   ---------   ")
+                AI_EVIDENCE.Motion = false
                 task.wait(10)
                 detected = false
             end
@@ -96,7 +98,7 @@ end)
 print("INIT: MOTION")
 
 -- // UNFINISHED \\ -- 
---[[
+
 local function deepCompare(t1, t2)
     local lookup_table = {}
     for _, v in pairs(t1) do
@@ -121,49 +123,49 @@ local evidenceModule = require(game:GetService("ReplicatedStorage").Evidences)
 local TotalEvidence = evidenceModule.Evidences
 local Ghosts = evidenceModule.Ghosts
 
-local collectedEvidence = {}
-for evidence, found in pairs(AI_EVIDENCE) do
-    if found == true then
-        table.insert(collectedEvidence, evidence)
-    end
-end
-
-local potentialGhosts = {}
-for ghost, evidences in pairs(Ghosts) do
-    local match = true
-    for _, evidence in pairs(collectedEvidence) do
-        if not table.find(evidences, evidence) then
-            match = false
-            break
+function MakeGuess()
+    local collectedEvidence = {}
+    for evidence, found in pairs(AI_EVIDENCE) do
+        if found == true then
+            table.insert(collectedEvidence, evidence)
         end
     end
-    if match then
-        for evidence, found in pairs(AI_EVIDENCE) do
-            if found == false and table.find(evidences, evidence) then
+
+    local potentialGhosts = {}
+    for ghost, evidences in pairs(Ghosts) do
+        local match = true
+        for _, evidence in pairs(collectedEvidence) do
+            if not table.find(evidences, evidence) then
                 match = false
                 break
             end
         end
+        if match then
+            for evidence, found in pairs(AI_EVIDENCE) do
+                if found == false and table.find(evidences, evidence) then
+                    match = false
+                    break
+                end
+            end
+        end
+        if match then
+            table.insert(potentialGhosts, ghost)
+        end
     end
-    if match then
-        table.insert(potentialGhosts, ghost)
+
+    print("Potential Ghosts: ")
+    for _, ghost in pairs(potentialGhosts) do
+        print(ghost)
+    end
+
+    if #potentialGhosts == 1 then
+        print("The ghost is: " .. potentialGhosts[1])
+    elseif #collectedEvidence == 3 then
+        local foundGhost = findMatch(collectedEvidence, Ghosts)
+        if foundGhost then
+            return foundGhost
+        else
+            return nil
+        end
     end
 end
-
-print("Potential Ghosts: ")
-for _, ghost in pairs(potentialGhosts) do
-    print(ghost)
-end
-
-if #potentialGhosts == 1 then
-    print("The ghost is: " .. potentialGhosts[1])
-elseif #collectedEvidence == 3 then
-    local foundGhost = findMatch(collectedEvidence, Ghosts)
-    if foundGhost then
-        print("The ghost is: " .. foundGhost)
-    else
-        print("No matching ghost found.")
-    end
-end
-
-]]

@@ -71,7 +71,6 @@ function PutEvidence(button : string)
                 print("   ---------   Entered Evidence   ---------")
                 print("   [1]   EVIDENCE: " .. button)
                 AI_EVIDENCE[button] = true
-                table.insert(Evidence, button)
                 signal:Fire()
             end
         end
