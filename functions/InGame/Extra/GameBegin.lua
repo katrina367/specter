@@ -69,7 +69,7 @@ Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,0,-3))
 
 task.wait(0.05)
 
-PlaceItem("Motion Sensor", false)
+PlaceItem("Motion Sensor", true)
 
 task.wait(1)
 
