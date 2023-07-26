@@ -1,83 +1,3 @@
-local function deepCompare(t1, t2)
-    local lookup_table = {}
-    for _, v in pairs(t1) do
-        lookup_table[v] = true
-    end
-    for _, v in pairs(t2) do
-        if not lookup_table[v] then return false end
-    end
-    return true
-end
-
-function findMatch(evidence, v2)
-    for ghost, evidences in pairs(v2) do
-        if deepCompare(evidence, evidences) then
-            return ghost
-        end
-    end
-    return nil
-end
-
-local evidenceModule = require(game:GetService("ReplicatedStorage").Evidences)
-local TotalEvidence = evidenceModule.Evidences
-local Ghosts = evidenceModule.Ghosts
-AI_EVIDENCE = {
-    ['Freezing Temperature'] = false,
-    ['EMF 5'] = "Unknown",
-    ['Writing'] = true,
-    ['Fingerprints'] = "Unknown",
-    ['Spirit Box'] = true,
-    ['Orbs'] = true,
-    ['Motion'] = false,
-}
-
-local collectedEvidence = {}
-for evidence, found in pairs(AI_EVIDENCE) do
-    if found == true then
-        table.insert(collectedEvidence, evidence)
-    end
-end
-
-local potentialGhosts = {}
-for ghost, evidences in pairs(Ghosts) do
-    local match = true
-    for _, evidence in pairs(collectedEvidence) do
-        if not table.find(evidences, evidence) then
-            match = false
-            break
-        end
-    end
-    if match then
-        for evidence, found in pairs(AI_EVIDENCE) do
-            if found == false and table.find(evidences, evidence) then
-                match = false
-                break
-            end
-        end
-    end
-    if match then
-        table.insert(potentialGhosts, ghost)
-    end
-end
-
-print("Potential Ghosts: ")
-for _, ghost in pairs(potentialGhosts) do
-    print(ghost)
-end
-
-if #potentialGhosts == 1 then
-    print("The ghost is: " .. potentialGhosts[1])
-elseif #collectedEvidence == 3 then
-    local foundGhost = findMatch(collectedEvidence, Ghosts)
-    if foundGhost then
-        print("The ghost is: " .. foundGhost)
-    else
-        print("No matching ghost found.")
-    end
-end
-
-
-
 Evidence = {}
 
 local orbs = WS.Orbs
@@ -177,16 +97,12 @@ print("INIT: MOTION")
 
 -- // UNFINISHED \\ -- 
 
-local evidenceModule = require(game:GetService("ReplicatedStorage").Evidences)
-local TotalEvidence = evidenceModule.Evidences
-local Ghosts = evidenceModule.Ghosts
-
 local function deepCompare(t1, t2)
     local lookup_table = {}
-    for i, v in ipairs(t1) do
+    for _, v in pairs(t1) do
         lookup_table[v] = true
     end
-    for i, v in ipairs(t2) do
+    for _, v in pairs(t2) do
         if not lookup_table[v] then return false end
     end
     return true
@@ -201,13 +117,51 @@ function findMatch(evidence, v2)
     return nil
 end
 
-function MakeAIGuess()
-    local PotentialGhosts = {}
-    for i, v in ipairs(AI_EVIDENCE) do
-        if Found == true then
-            for i2, v2 in ipairs(v.Ghosts) do
-                table.insert(PotentialGhosts, v2)
-            end        
+local evidenceModule = require(game:GetService("ReplicatedStorage").Evidences)
+local TotalEvidence = evidenceModule.Evidences
+local Ghosts = evidenceModule.Ghosts
+
+local collectedEvidence = {}
+for evidence, found in pairs(AI_EVIDENCE) do
+    if found == true then
+        table.insert(collectedEvidence, evidence)
+    end
+end
+
+local potentialGhosts = {}
+for ghost, evidences in pairs(Ghosts) do
+    local match = true
+    for _, evidence in pairs(collectedEvidence) do
+        if not table.find(evidences, evidence) then
+            match = false
+            break
         end
+    end
+    if match then
+        for evidence, found in pairs(AI_EVIDENCE) do
+            if found == false and table.find(evidences, evidence) then
+                match = false
+                break
+            end
+        end
+    end
+    if match then
+        table.insert(potentialGhosts, ghost)
+    end
+end
+
+print("Potential Ghosts: ")
+for _, ghost in pairs(potentialGhosts) do
+    print(ghost)
+end
+
+if #potentialGhosts == 1 then
+    print("The ghost is: " .. potentialGhosts[1])
+elseif #collectedEvidence == 3 then
+    local foundGhost = findMatch(collectedEvidence, Ghosts)
+    if foundGhost then
+        print("The ghost is: " .. foundGhost)
+    else
+        print("No matching ghost found.")
     end
 end
