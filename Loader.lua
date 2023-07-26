@@ -47,4 +47,3 @@ elseif game.PlaceId == GameId then
     EquipmentPath = WS.Equipment
     load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Main.lua")
 end
-
