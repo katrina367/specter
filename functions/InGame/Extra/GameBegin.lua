@@ -18,9 +18,9 @@ local Camera = Workspace.CurrentCamera
 local VAN_BUTTON = WS.Van.Close
 local VAN_KEY = WS.Van.Key
 
-Char:SetPrimaryPartCFrame(VAN_BUTTON.CFrame * CFrame.new(0,0,-3))
+Char:SetPrimaryPartCFrame(VAN_BUTTON.CFrame * CFrame.new(0,0,3))
 
-task.wait(0.1)
+task.wait(0.3)
 
 Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
 
