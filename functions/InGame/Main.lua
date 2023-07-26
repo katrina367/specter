@@ -3,6 +3,7 @@ Hunting = false
 
 ImportantGUIS = {}
 
+--[[
 AI_EVIDENCE = {
     ['Freezing Temperature'] = false,
     ['EMF 5'] = "Unknown",
@@ -12,7 +13,7 @@ AI_EVIDENCE = {
     ['Orbs'] = "Unknown",
     ['Motion'] = false,
 }
-
+]]
 for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChildren() do
     if v:IsA("Frame") then
         table.insert(ImportantGUIS, v)
