@@ -23,7 +23,7 @@ events.Hunt.OnClientEvent:Connect(function()
     Hunting = not Hunting
 
     if Hunting then
-        repeat task.wait() until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 7 or Hunting == false
+        repeat task.wait() until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or Hunting == false
         if not Hunting then return end
         repeat Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,0,-5)) task.wait() until Hunting == false
     else
