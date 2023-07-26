@@ -96,7 +96,7 @@ end)
 print("INIT: MOTION")
 
 -- // UNFINISHED \\ -- 
-
+--[[
 local function deepCompare(t1, t2)
     local lookup_table = {}
     for _, v in pairs(t1) do
@@ -165,3 +165,5 @@ elseif #collectedEvidence == 3 then
         print("No matching ghost found.")
     end
 end
+
+]]
