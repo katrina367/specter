@@ -1,6 +1,38 @@
 Char = plr.Character
 Hunting = false
+
 ImportantGUIS = {}
+
+AI_EVIDENCE = {
+    ['Freezing Temperature'] = {
+        Found = false,
+        Ghosts = {"Demon", "Mare", "Upyr", "Phantom", "Yurei", "Banshee", "Wendigo", "Thaye", "Afarit", "Yokai"}   
+    },
+    ['EMF 5'] = {
+        Found = "Unknown",
+        Ghosts = {"Banshee", "Phantom", "Jinn", "Revenant", "Upyr", "Shade", "Aswang", "O Tokata", "Myling", "Preta", "Wraith"}
+    },
+    ['Writing'] = {
+        Found = "Unknown",
+        Ghosts = {"Demon", "Spirit", "Revenant", "Yurei", "Oni", "Egui", "Shade", "Wisp", "Douen", "Wraith"}
+    },
+    ['Fingerprints'] = {
+        Found = "Unknown",
+        Ghosts = {"Banshee", "Spirit", "Poltergeist", "Revenant", "Wisp", "Aswang", "Thaye", "O Tokata", "Douen", "Preta", "Yokai"}
+    },
+    ['Spirit Box'] = {
+        Found = true,
+        Ghosts = {"Demon", "Mare", "Wendigo", "Spirit", "Poltergeist", "Oni", "Egui", "Aswang", "Myling"}
+    },
+    ['Orbs'] = {
+        Found = true,
+        Ghosts = {"Mare", "Poltergeist", "Phantom", "Jinn", "Shade", "Yurei", "Egui", "Wisp", "Thaye", "O Tokata", "Afarit"}
+    },
+    ['Motion'] = {
+        Found = false,
+        Ghosts = {"Myling", "Afarit", "Jinn", "Wendigo", "Oni", "Upyr", "Douen", "Preta", "Yokai", "Wraith"}
+    }
+}
 
 for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChildren() do
     if v:IsA("Frame") then

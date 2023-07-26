@@ -70,7 +70,7 @@ function PutEvidence(button : string)
             for _, signal in pairs(getconnections(v.Box.Activated)) do
                 print("   ---------   Entered Evidence   ---------")
                 print("   [1]   EVIDENCE: " .. button)
-
+                AI_EVIDENCE[button] = true
                 table.insert(Evidence, button)
                 signal:Fire()
             end

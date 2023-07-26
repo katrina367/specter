@@ -42,6 +42,21 @@ fireproximityprompt(VAN_KEY.KeyPrompt)
 
 task.wait(0.1)
 
+local Camera = Workspace.CurrentCamera
+
+repeat
+    coroutine.wrap(NewTween)(WS.Map.Bone)
+    
+    task.wait(0.2)
+    
+    for i = 1,5 do
+        Camera.CFrame = CFrame.new(Camera.CFrame.Position, game:GetService("Workspace").Map.Bone.CFrame.Position)
+        task.wait(0.2)
+    end
+    
+    fireproximityprompt(game:GetService("Workspace").Map.Bone.BonePrompt)
+until not WS.Map:FindFirstChild("Bone")
+
 GetItem("Motion Sensor")
 task.wait(0.1)
 EquipItem("Motion Sensor")
