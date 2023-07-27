@@ -26,7 +26,7 @@ Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
 
 task.wait(0.2)
 
-fireproximityprompt(WS.Van.Close.VanPrompt)
+fireproximityprompt(VAN_BUTTON.VanPrompt)
 
 task.wait(1)
 
@@ -92,12 +92,17 @@ task.wait(0.1)
 Toggle()
 task.wait(0.1)
 DropItem("Spirit Box")
+GetItem("Thermometer")
 
 EquipItem("Book")
 task.wait(0.1)
 PlaceItem("Book",true)
 
+EquipItem("Thermometer")
 task.wait(0.1)
+Toggle()
+task.wait(0.1)
+DropItem("Thermometer")
 --GetItem("Motion Sensor")
 --GetItem("Crucifix")
 
