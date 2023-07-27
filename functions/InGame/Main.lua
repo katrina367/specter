@@ -21,9 +21,10 @@ end
 
 local function Defense()
     GetItem("Crucifix")
+    task.wait(0.1)
     EquipItem("Crucifix")
     task.wait(0.1)
-    PlaceItem("Crucifix")
+    PlaceItem("Crucifix", true)
 end
 
 events.Hunt.OnClientEvent:Connect(function()
