@@ -19,24 +19,29 @@ for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChi
     end
 end
 
+local function Defense()
+    GetItem("Crucifix")
+    EquipItem("Crucifix")
+    task.wait(0.1)
+    PlaceItem("Crucifix")
+end
+
 events.Hunt.OnClientEvent:Connect(function()
     Hunting = not Hunting
 
     if Hunting then
-        repeat task.wait() 
-        until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or Hunting == false
+        repeat 
+            task.wait() 
+        until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or not Hunting
         
         if not Hunting then return end
         
         if EquipmentPath:FindFirstChild("Crucifix") then
-            GetItem("Crucifix")
-            EquipItem("Crucifix")
-            task.wait(0.1)
-            PlaceItem("Crucifix")
+            coroutine.wrap(Defense)()
         end
         
         repeat 
-            Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,10,0)) 
+            Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,8,0)) 
             task.wait() 
         until not Hunting
     else

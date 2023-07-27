@@ -57,14 +57,13 @@ function Toggle()
 end
 
 function PutEvidence(button : string)
-    for _, evidence in ipairs(Evidence) do
-        if evidence == button then
-            print("   ---------   Failed to put in evidence   ---------")
-            print("   [1]   EVIDENCE: " .. button)
-            print("   [2]   REASON:   " .. "Evidence already entered")            
-            return
-        end
+    if AI_EVIDENCE[button] == true then 
+        print("   ---------   Failed to put in evidence   ---------")
+        print("   [1]   EVIDENCE: " .. button)
+        print("   [2]   REASON:   " .. "Evidence already entered")            
+        return
     end
+
     for i, v in ipairs(ImportantGUIS) do
         if v.Name == button then
             for _, signal in pairs(getconnections(v.Box.Activated)) do
