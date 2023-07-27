@@ -23,14 +23,22 @@ events.Hunt.OnClientEvent:Connect(function()
     Hunting = not Hunting
 
     if Hunting then
-        repeat task.wait() until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or Hunting == false
+        repeat task.wait() 
+        until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or Hunting == false
+        
         if not Hunting then return end
+        
         if EquipmentPath:FindFirstChild("Crucifix") then
             GetItem("Crucifix")
             EquipItem("Crucifix")
             task.wait(0.1)
             PlaceItem("Crucifix")
-        repeat Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,10,0)) task.wait() until Hunting == false
+        end
+        
+        repeat 
+            Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,10,0)) 
+            task.wait() 
+        until not Hunting
     else
         task.wait(0.3)
         Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
@@ -42,7 +50,6 @@ local Channel = TSC.TextChannels.RBXGeneral
 
 task.spawn(function()
     while true do
-        repeat task.wait(0.1) until not Hunting
         Channel:SendAsync("Where are you? Are you here? How old are you? Can you write in the book? Can you leave a fingerprint? Are you there? Are you a boy? Are you a girl? Anyone here? Can you turn on the lights?")
         task.wait(5)
     end

@@ -20,12 +20,12 @@ local LobbyId = 8267733039
 local GameId = 8417221956
 
 if rep:FindFirstChild("Library") then
-    notification = require(rep.Library).Notification
+    local notification = require(rep.Library).Notification
     function SuccessNotif(text : string)
         notification.Create("Success", text)
     end
 elseif plr.PlayerScripts:FindFirstChild("ClientMain").Modules.NotificationManager then
-    notification = require(plr.PlayerScripts.ClientMain.Modules.NotificationManager)
+    local notification = require(plr.PlayerScripts.ClientMain.Modules.NotificationManager)
     function SuccessNotif(text : string)
         notification:Create("Success", text)
     end
