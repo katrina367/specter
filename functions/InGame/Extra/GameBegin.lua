@@ -26,7 +26,7 @@ Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
 
 task.wait(0.2)
 
-fireproximityprompt(VAN_BUTTON.VanPrompt)
+fireproximityprompt(WS.Van.Close.VanPrompt)
 
 task.wait(1)
 
