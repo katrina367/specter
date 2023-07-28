@@ -152,7 +152,7 @@ function PutEvidence(button : string)
                 AI_EVIDENCE[button] = true
                 signal:Fire()
             end
-            --[[local ghost = MakeGuess()
+            local ghost = MakeGuess()
 
             if ghost == nil  then return end
             
@@ -172,7 +172,7 @@ function PutEvidence(button : string)
                     
                     fireproximityprompt(VAN_BUTTON.VanPrompt)
                 end
-            end]]
+            end
         end
     end
 end
