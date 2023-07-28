@@ -102,6 +102,9 @@ EquipItem("Book")
 task.wait(0.1)
 PlaceItem("Book",true)
 
+task.wait(1)
+GetItem("Crucifix")
+
 GetItem("Thermometer")
 task.wait(0.1)
 EquipItem("Thermometer")
@@ -109,8 +112,6 @@ task.wait(0.1)
 Toggle()
 task.wait(1)
 DropItem("Thermometer")
-task.wait(1)
-GetItem("Crucifix")
 
 --GetItem("Motion Sensor")
 --GetItem("Crucifix")

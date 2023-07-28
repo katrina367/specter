@@ -184,23 +184,26 @@ function PutEvidence(button : string)
 end
 
 function PlaceItem(Item : string, PlaceAtCharacter : bool)
-    repeat task.wait(0.1) until not Hunting
-    if not PlaceAtCharacter then
-        PlacementArgs = {
-            [1] = FindItemInInventory(Item),
-            [2] = Ghost.CFrame * CFrame.new(0,-3,-4),
-            [3] = workspace:WaitForChild("Terrain"),
-            [4] = Ghost.Position
-        }
-    else
-        PlacementArgs = {
-            [1] = FindItemInInventory(Item),
-            [2] = root.CFrame * CFrame.new(0,-3,0),
-            [3] = workspace:WaitForChild("Terrain"),
-            [4] = root.Position
-        }
-    end
-
-    PlaceRemote:InvokeServer(unpack(PlacementArgs))    
+    task.spawn(function()
+        repeat task.wait(0.1) until not Hunting
+        if not PlaceAtCharacter then
+            PlacementArgs = {
+                [1] = FindItemInInventory(Item),
+                [2] = Ghost.CFrame * CFrame.new(0,-3,-4),
+                [3] = workspace:WaitForChild("Terrain"),
+                [4] = Ghost.Position
+            }
+        else
+            PlacementArgs = {
+                [1] = FindItemInInventory(Item),
+                [2] = root.CFrame * CFrame.new(0,-3,0),
+                [3] = workspace:WaitForChild("Terrain"),
+                [4] = root.Position
+            }
+        end
+    
+        PlaceRemote:InvokeServer(unpack(PlacementArgs))  
+    end)
+  
 end
 
