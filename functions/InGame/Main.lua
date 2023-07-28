@@ -83,6 +83,6 @@ for _, v in pairs(waterP:GetChildren()) do
     end)
 end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua"))()
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua"))()
 
 

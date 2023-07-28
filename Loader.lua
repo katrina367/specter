@@ -41,5 +41,5 @@ elseif game.PlaceId == GameId then
     SuccessNotif("Ingame Detected.. Starting")
     ClientMain = getsenv(plr.PlayerScripts.ClientMain)
     EquipmentPath = WS.Equipment
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Main.lua"))()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Main.lua"))()
 end
