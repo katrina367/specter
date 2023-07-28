@@ -107,7 +107,6 @@ local function FindItemInInventory(Item : string)
             return i
         end
     end
-    return false
 end
 
 function GetItem(Item : string)
