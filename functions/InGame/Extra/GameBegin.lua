@@ -14,6 +14,8 @@ end
 
 task.wait(5)
 
+local Camera = Workspace.CurrentCamera
+
 local VAN_BUTTON = WS.Van.Close
 local VAN_KEY = WS.Van.Key
 
