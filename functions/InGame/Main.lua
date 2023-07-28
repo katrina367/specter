@@ -25,6 +25,8 @@ for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.GhostCheckboxes:GetChildr
     end
 end
 
+loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
+
 local function Defense()
     EquipItem("Crucifix")
     task.wait(0.1)
@@ -91,4 +93,10 @@ end
 
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua"))()
 
+task.wait(60 * 3)
 
+if AI_EVIDENCE.Orbs == "Unknown" then AI_EVIDENCE.Orbs = false end
+
+task.wait(60 * 3)
+
+if AI_EVIDENCE.Fingerprints == "Unknown" then AI_EVIDENCE.Fingerprints = false end

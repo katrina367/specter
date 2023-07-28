@@ -1,9 +1,3 @@
-task.wait(1)
-
-loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
-
-task.wait(1)
-
 local info = TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut)
 
 local function NewTween(part)
@@ -68,7 +62,7 @@ EquipItem("Motion Sensor")
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/Misc/Evidence.lua"))()
 
-task.wait(5)
+task.wait(2)
 
 Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,0,-3))
 
