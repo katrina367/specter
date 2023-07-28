@@ -35,7 +35,7 @@ SuccessNotif("Starting Drastic's Specter AutoFarm")
 if game.PlaceId == LobbyId then
     task.wait(1)
     SuccessNotif("Lobby Detected.. Starting")
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Lobby.lua"))()
+    loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Lobby.lua"))()
 elseif game.PlaceId == GameId then
     task.wait(1)
     SuccessNotif("Ingame Detected.. Starting")
