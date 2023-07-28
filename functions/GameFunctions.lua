@@ -121,7 +121,10 @@ end
 
 function EquipItem(Item : string)
     repeat task.wait(0.1) until not Hunting
-    if not FindItemInInventory(Item) then GetItem(Item) task.wait(0.1) end
+    if not FindItemInInventory(Item) then 
+        GetItem(Item) 
+        task.wait(0.1) 
+    end
 
     ClientMain.equipTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
     print("Equipped " .. Item)
@@ -161,7 +164,9 @@ function PutEvidence(button : string)
 
             local ghost = MakeGuess()
 
-            if ghost == nil then return end
+            if ghost == nil then 
+                return 
+            end
             
             for _, v2 in ipairs(ImportantGUIS) do
                 if v2.Name == ghost then
