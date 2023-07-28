@@ -164,7 +164,7 @@ function PutEvidence(button : string)
             if ghost == nil then return end
             
             for _, v2 in ipairs(ImportantGUIS) do
-                if v2.Name = ghost then
+                if v2.Name == ghost then
                     for _, signal in pairs(getconnections(v2.Box.Activated)) do
                         signal:Fire()
                     end
