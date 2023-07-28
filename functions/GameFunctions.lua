@@ -2,6 +2,8 @@
 
 -- // REMOTES \\ --
 
+print("loading remotes")
+
 local InventoryRemote = events:WaitForChild("Inventory")
 local PickupRemote = events:WaitForChild("Pickup")
 local PlaceRemote = events:WaitForChild("PlaceItem")
@@ -17,6 +19,8 @@ local ToolbarHotkeys = {
 }
 
 -- // AI \\ -- 
+
+print("loading ai")
 
 local function deepCompare(t1, t2)
     local lookup_table = {}
@@ -88,6 +92,8 @@ function MakeGuess()
         end
     end
 end
+
+print("init functions")
 
 local function GetInventory()
     return InventoryRemote:InvokeServer()
