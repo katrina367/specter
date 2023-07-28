@@ -137,7 +137,8 @@ function Toggle()
     events:WaitForChild("ToggleEquipment"):InvokeServer()
     print("Toggled")
 end
-
+local function i()
+end
 function PutEvidence(button : string)
     
     if AI_EVIDENCE[tostring(button)] == true then 

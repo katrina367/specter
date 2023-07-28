@@ -130,3 +130,4 @@ EquipItem("EMF Reader")
 task.wait(0.2)
 Toggle()
 
+-- try
