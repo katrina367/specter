@@ -3,6 +3,7 @@
 -- // REMOTES \\ --
 
 print("loading remotes")
+local ClientMain = getsenv(game.Players.LocalPlayer.PlayerScripts.ClientMain)
 
 local InventoryRemote = events:WaitForChild("Inventory")
 local PickupRemote = events:WaitForChild("Pickup")
