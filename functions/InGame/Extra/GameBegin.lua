@@ -111,10 +111,11 @@ EquipItem("Thermometer")
 task.wait(0.1)
 Toggle()
 task.wait(1)
-for i = 1,3 do 
-    DropItem("Thermometer")
-    task.wait(0.1)
-end
+EquipItem("Spirit Box")
+task.wait(0.1)
+EquipItem("Thermometer")
+task.wait(0.1)
+DropItem("Thermometer")
 
 --GetItem("Motion Sensor")
 --GetItem("Crucifix")
