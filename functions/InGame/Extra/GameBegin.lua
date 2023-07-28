@@ -103,13 +103,9 @@ EquipItem("Thermometer")
 task.wait(0.1)
 Toggle()
 task.wait(0.1)
-local ClientMain = getsenv(game.Players.LocalPlayer.PlayerScripts.ClientMain)
-ClientMain.dropTool("", Enum.UserInputState.Begin, {KeyCode = Enum.KeyCode.Three})
 
 --DropItem("Thermometer")
 
-task.wait(1)
-GetItem("Crucifix")
 
 EquipItem("Book")
 task.wait(0.1)
@@ -117,6 +113,8 @@ PlaceItem("Book",true)
 
 
 
+task.wait(1)
+GetItem("Crucifix")
 
 --GetItem("Motion Sensor")
 --GetItem("Crucifix")
