@@ -33,7 +33,7 @@ local function deepCompare(t1, t2)
     return true
 end
 
-function findMatch(evidence, v2)
+local function findMatch(evidence, v2)
     for ghost, evidences in pairs(v2) do
         if deepCompare(evidence, evidences) then
             return ghost
@@ -136,7 +136,8 @@ function Toggle()
 end
 
 function PutEvidence(button : string)
-    if AI_EVIDENCE[button] == true then 
+    
+    if AI_EVIDENCE[tostring(button)] == true then 
         print("   ---------   Failed to put in evidence   ---------")
         print("   [1]   EVIDENCE: " .. button)
         print("   [2]   REASON:   " .. "Evidence already entered")            
