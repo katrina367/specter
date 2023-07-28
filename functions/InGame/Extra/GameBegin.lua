@@ -92,17 +92,21 @@ task.wait(0.1)
 Toggle()
 task.wait(0.1)
 DropItem("Spirit Box")
-GetItem("Thermometer")
 
 EquipItem("Book")
 task.wait(0.1)
 PlaceItem("Book",true)
 
+GetItem("Thermometer")
+task.wait(0.1)
 EquipItem("Thermometer")
 task.wait(0.1)
 Toggle()
 task.wait(0.1)
 DropItem("Thermometer")
+task.wait(0.1)
+GetItem("Crucifix")
+
 --GetItem("Motion Sensor")
 --GetItem("Crucifix")
 

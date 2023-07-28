@@ -106,18 +106,7 @@ local function FindItemInInventory(Item : string)
             return i
         end
     end
-end
-
-function EquipItem(Item : string)
-    repeat task.wait(0.1) until not Hunting
-    ClientMain.equipTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
-    print("Equipped " .. Item)
-end
-
-function DropItem(Item : string)
-    repeat task.wait(0.1) until not Hunting
-    ClientMain.dropTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
-    print("Dropped " .. Item)
+    return false
 end
 
 function GetItem(Item : string)
@@ -127,6 +116,22 @@ function GetItem(Item : string)
         PickupRemote:InvokeServer(foundItem)
         print("Picked up " .. Item)
     end
+end
+
+function EquipItem(Item : string)
+    repeat task.wait(0.1) until not Hunting
+    if not FindItemInInventory(Item) then GetItem(Item) task.wait(0.1) end
+
+    ClientMain.equipTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
+    print("Equipped " .. Item)
+end
+
+function DropItem(Item : string)
+    repeat task.wait(0.1) until not Hunting
+    if plr:GetAttribute("Tool") ~= Item then EquipItem(Item) task.wait(0.1) end
+    
+    ClientMain.dropTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
+    print("Dropped " .. Item)
 end
 
 function Toggle()

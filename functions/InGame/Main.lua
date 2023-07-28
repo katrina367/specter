@@ -20,8 +20,6 @@ for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChi
 end
 
 local function Defense()
-    GetItem("Crucifix")
-    task.wait(0.1)
     EquipItem("Crucifix")
     task.wait(0.1)
     PlaceItem("Crucifix", true)
@@ -60,6 +58,30 @@ task.spawn(function()
         task.wait(5)
     end
 end)
+
+local waterP = game:GetService("Workspace").Map.EventObjects.Sinks
+local Camera = Workspace.CurrentCamera
+
+for _, v in pairs(waterP:GetChildren()) do
+    v.Running:GetAttributeChangedSignal("Playing"):Connect(function()
+        repeat task.wait()
+        until Hunting == false
+
+        Char:SetPrimaryPartCFrame(v.CFrame * CFrame.new(0,5,0))
+
+        for i = 1,4 do
+            Camera.CFrame = CFrame.new(Camera.CFrame.Position, v.Position)
+            task.wait(0.1)
+        end
+
+        fireproximityprompt(v.ProximityPrompt)
+
+        task.wait(0.3)
+
+        Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
+
+    end)
+end
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua"))()
 
