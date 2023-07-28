@@ -39,12 +39,16 @@ print("INIT: BOOK, SPIRIT BOX")
 
 WS.ChildAdded:Connect(function(child)
     if child.Name == "emfpart5" then
-        if not Char:FindFirstChild("Tool") then
+        if not plr:GetAttribute("Tool") == "EMF Reader" then
             EquipItem("EMF Reader")
+            task.wait(0.1)
+            Toggle()
         else
             EquipItem("EMF Reader")
             task.wait(0.1)
             EquipItem("EMF Reader")
+            task.wait(0.1)
+            Toggle()
         end
         task.wait(1)
         local CurrentCFrame = Char.PrimaryPart.CFrame

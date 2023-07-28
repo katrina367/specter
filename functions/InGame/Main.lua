@@ -31,6 +31,10 @@ local function Defense()
     EquipItem("Crucifix")
     task.wait(0.1)
     PlaceItem("Crucifix", true)
+    task.wait(0.1)
+    EquipItem("EMF Reader")
+    task.wait(0.1)
+    Toggle()
 end
 
 events.Hunt.OnClientEvent:Connect(function()
