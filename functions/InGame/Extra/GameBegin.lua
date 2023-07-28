@@ -103,6 +103,9 @@ EquipItem("Thermometer")
 task.wait(0.1)
 Toggle()
 task.wait(0.1)
+local ClientMain = getsenv(game.Players.LocalPlayer.PlayerScripts.ClientMain)
+ClientMain.dropTool("", Enum.UserInputState.Begin, {KeyCode = Three})
+
 DropItem("Thermometer")
 
 task.wait(1)
