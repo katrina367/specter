@@ -10,7 +10,7 @@ local PlaceRemote = events:WaitForChild("PlaceItem")
 
 local root = Char.HumanoidRootPart
 local Ghost = WS:WaitForChild("Ghost").PrimaryPart
-local Camera = Workspace.CurrentCamera
+local Camera = WS.CurrentCamera
 
 local ToolbarHotkeys = {
     [1] = Enum.KeyCode.One,
