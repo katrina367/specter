@@ -105,6 +105,12 @@ task.wait(60 * 3)
 
 if AI_EVIDENCE.Fingerprints == "Unknown" then AI_EVIDENCE.Fingerprints = false end
 
+task.wait(60 * 3)
+
+if AI_EVIDENCE.Writing == "Unknown" then AI_EVIDENCE.Writing = false end
+
+task.wait(60 * 3)
+
 local ghost = MakeGuess()
 
 if ghost == nil then 
