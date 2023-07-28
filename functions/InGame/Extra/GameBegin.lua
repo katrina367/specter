@@ -11,7 +11,7 @@ local function NewTween(part)
     tween:Play()
 end
 
-task.wait(1)
+task.wait(5)
 
 local Camera = Workspace.CurrentCamera
 
