@@ -10,6 +10,7 @@ WS = game:GetService("Workspace")
 rep = game:GetService("ReplicatedStorage")
 TweenService = game:GetService("TweenService")
 
+Camera = Workspace.CurrentCamera
 events = rep.Events
 
 local LobbyId = 8267733039
