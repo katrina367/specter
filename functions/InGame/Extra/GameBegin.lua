@@ -97,25 +97,23 @@ task.wait(0.1)
 Toggle()
 task.wait(0.1)
 DropItem("Spirit Box")
-
-EquipItem("Book")
-task.wait(0.1)
-PlaceItem("Book",true)
-
-task.wait(1)
-GetItem("Crucifix")
-
 GetItem("Thermometer")
 task.wait(0.1)
 EquipItem("Thermometer")
 task.wait(0.1)
 Toggle()
-task.wait(1)
-EquipItem("EMF Reader")
-task.wait(0.1)
-EquipItem("Thermometer")
 task.wait(0.1)
 DropItem("Thermometer")
+
+task.wait(1)
+GetItem("Crucifix")
+
+EquipItem("Book")
+task.wait(0.1)
+PlaceItem("Book",true)
+
+
+
 
 --GetItem("Motion Sensor")
 --GetItem("Crucifix")
