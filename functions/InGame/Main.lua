@@ -19,6 +19,12 @@ for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChi
     end
 end
 
+for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.GhostCheckboxes:GetChildren() do
+    if v:IsA("Frame") then
+        table.insert(ImportantGUIS, v)
+    end
+end
+
 local function Defense()
     EquipItem("Crucifix")
     task.wait(0.1)
