@@ -1,6 +1,6 @@
 --!strict
 
-print("   -----------------------------------   Specter Autofarm V0.05 BETA   -----------------------------------   ")
+print("   -----------------------------------   Specter Autofarm V0.06 BETA   -----------------------------------   ")
 print("  ----  CURRENT FEATURES  ----  " .. "  ----  FEATURES IN DEVELOPMENT  ----  ".. "  ----  FEATURES IN DEVELOPMENT  ----  ")
 
 Players = game:GetService("Players")

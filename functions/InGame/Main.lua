@@ -40,7 +40,7 @@ events.Hunt.OnClientEvent:Connect(function()
         end
         
         repeat 
-            Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,8,0)) 
+            Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,10,0)) 
             task.wait() 
         until not Hunting
     else
