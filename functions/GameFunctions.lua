@@ -157,8 +157,32 @@ function PutEvidence(button : string)
                 AI_EVIDENCE[button] = true
                 signal:Fire()
             end
+            
+            task.wait(1)
 
+            local ghost = MakeGuess()
 
+            if ghost == nil then 
+                return 
+            end
+            
+            for _, v2 in ipairs(ImportantGUIS) do
+                if v2.Name == ghost then
+                    for _, signal in pairs(getconnections(v2.Box.Activated)) do
+                        signal:Fire()
+                    end
+                    local VAN_BUTTON = WS.Van.Close
+                    Char:SetPrimaryPartCFrame(VAN_BUTTON.CFrame * CFrame.new(0,0,3))
+                    
+                    task.wait(0.3)
+
+                    Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+                    
+                    task.wait(0.2)
+                    
+                    fireproximityprompt(VAN_BUTTON.VanPrompt)
+                end
+            end
         end
     end
 end
