@@ -13,6 +13,8 @@ TweenService = game:GetService("TweenService")
 events = rep.Events
 
 function load(link)
+    print(link)
+    task.wait(0.1)
     loadstring(game:HttpGet(link))()
 end
 
