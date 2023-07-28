@@ -157,9 +157,10 @@ function PutEvidence(button : string)
                 AI_EVIDENCE[button] = true
                 signal:Fire()
             end
+            
             local ghost = MakeGuess()
 
-            if ghost == nil  then return end
+            if ghost == nil then return end
             
             for _, v2 in ipairs(ImportantGUIS) do
                 if v2.Name = ghost then
