@@ -5,7 +5,7 @@ local function NewTween(part)
     if Hunting then
         local tween = TweenService:Create(Char.PrimaryPart, info, {CFrame = part.CFrame})
         tween:Play()
-        repeat task.wait() until not Hunting
+        repeat task.wait() until Hunting == false
     end
     local tween = TweenService:Create(Char.PrimaryPart, info, {CFrame = part.CFrame})
     tween:Play()
