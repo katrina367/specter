@@ -1,6 +1,16 @@
 task.wait(1)
 
-loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
+
+local chunk, err = loadstring("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua")
+if chunk == nil then
+  print("Error loading string: " .. err)
+else
+  local success, runtimeError = pcall(chunk)
+  if not success then
+    print("Error running string: " .. runtimeError)
+  end
+end
+
 
 task.wait(1)
 
