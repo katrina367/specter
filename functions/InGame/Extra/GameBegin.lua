@@ -1,7 +1,7 @@
 task.wait(1)
 
 
-local chunk, err = loadstring("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua")
+local chunk, err = loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
 if chunk == nil then
   print("Error loading string: " .. err)
 else
