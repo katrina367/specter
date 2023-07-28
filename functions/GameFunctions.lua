@@ -163,7 +163,7 @@ function PutEvidence(button : string)
             
             for _, v2 in ipairs(ImportantGUIS) do
                 if v2.Name = ghost then
-                    for _, signal in pairs(getconnections(v.Box.Activated)) do
+                    for _, signal in pairs(getconnections(v2.Box.Activated)) do
                         signal:Fire()
                     end
                     local VAN_BUTTON = WS.Van.Close
