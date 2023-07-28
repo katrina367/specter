@@ -1,9 +1,6 @@
 task.wait(1)
 
-
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
-
-
 
 task.wait(1)
 
