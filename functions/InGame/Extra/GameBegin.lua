@@ -1,4 +1,4 @@
-load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))
+load("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua")
 local info = TweenInfo.new(0, Enum.EasingStyle.Linear, Enum.EasingDirection.InOut)
 
 local function NewTween(part)
