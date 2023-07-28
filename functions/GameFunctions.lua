@@ -17,7 +17,6 @@ local ToolbarHotkeys = {
 }
 
 -- // AI \\ -- 
---[[
 
 local function deepCompare(t1, t2)
     local lookup_table = {}
@@ -88,7 +87,7 @@ function MakeGuess()
             return nil
         end
     end
-end]]
+end
 
 local function GetInventory()
     return InventoryRemote:InvokeServer()
