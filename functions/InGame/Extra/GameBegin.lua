@@ -49,7 +49,7 @@ repeat
     task.wait(0.2)
     
     for i = 1,5 do
-        Camera.CFrame = CFrame.new(Camera.CFrame.Position, game:GetService("Workspace").Map.Bone.CFrame.Position)
+        Camera.CFrame = CFrame.new(Camera.CFrame.Position, game:GetService("Workspace").Map.Bone.CFrame.Position + Vector3.new(0,4,0))
         task.wait(0.2)
     end
     
