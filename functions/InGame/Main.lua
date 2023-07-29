@@ -27,7 +27,7 @@ end
 
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
 
-local function Defense()
+function Defense()
     EquipItem("Crucifix")
     task.wait(0.1)
     PlaceItem("Crucifix", true)
