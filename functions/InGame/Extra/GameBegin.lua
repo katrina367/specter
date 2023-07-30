@@ -44,7 +44,7 @@ task.wait(0.1)
 local Camera = Workspace.CurrentCamera
 
 repeat
-    Char:SetPrimaryPartCFrame(WS.Map.Bone.CFrame.Position)
+    Char:SetPrimaryPartCFrame(WS.Map.Bone.CFrame)
     
     task.wait(0.2)
     
