@@ -60,14 +60,13 @@ WS.ChildAdded:Connect(function(child)
     end
 end)
 
-local emf_detect = plr:GetAttributeChangedSignal("Tool"):Connect(function()
-    if plr:GetAttribute("Tool") == "EMF Reader" then
-        local emf = Char.Tool
-        local emf_5 = emf.Main:FindFirstChild("EMF 5").GetPropertyChangedSignal:Connect(function()
-            if emf.Main:FindFirstChild("EMF 5").Playing == true then
+Char.ChildAdded:Connect(function(child)
+    if child.Name == "Tool" then
+        if plr:GetAttribute("Tool") == "EMF Reader" then
+            child.Main:FindFirstChild("EMF 5").GetPropertyChangedSignal:Connect(function()
                 PutEvidence("EMF 5")
-            end
-        end)
+            end)
+        end
     end
 end)
 

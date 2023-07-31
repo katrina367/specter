@@ -10,7 +10,7 @@ local function NewTween(part)
     tween:Play()
 end
 
-task.wait(5)
+task.wait(1)
 
 local Camera = WS.CurrentCamera
 
