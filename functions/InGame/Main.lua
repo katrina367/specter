@@ -51,7 +51,7 @@ events.Hunt.OnClientEvent:Connect(function()
             }
         
             WaypointRemote:FireServer(unpack(args))
-            
+
         until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or not Hunting
         
         if not Hunting then return end
@@ -61,7 +61,7 @@ events.Hunt.OnClientEvent:Connect(function()
         end
         
         repeat 
-            Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,10,-5)) 
+            Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,8,-6)) 
             task.wait() 
         until not Hunting
     else
@@ -83,11 +83,11 @@ task.spawn(function()
     end
 end)
 
-local waterP = game:GetService("Workspace").Map.EventObjects.Sinks
-local Camera = Workspace.CurrentCamera
+local waterP = WS.Map.EventObjects.Sinks
+local Camera = WS.CurrentCamera
 
 for _, v in pairs(waterP:GetChildren()) do
-    v.Running:GetAttributeChangedSignal("Playing"):Connect(function()
+    v.Running:GetPropertyChangedSignal("Playing"):Connect(function()
         repeat task.wait()
         until Hunting == false
 
