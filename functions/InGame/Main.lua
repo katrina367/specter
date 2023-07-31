@@ -88,8 +88,11 @@ local Camera = WS.CurrentCamera
 
 for _, v in pairs(waterP:GetChildren()) do
     v.Running:GetPropertyChangedSignal("Playing"):Connect(function()
+        task.wait(20)
+        
         repeat task.wait()
         until Hunting == false
+        
 
         Char:SetPrimaryPartCFrame(v.CFrame * CFrame.new(0,5,0))
 
