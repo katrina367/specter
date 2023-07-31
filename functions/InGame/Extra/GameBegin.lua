@@ -17,7 +17,7 @@ local Camera = WS.CurrentCamera
 local VAN_BUTTON = WS.Van.Close
 local VAN_KEY = WS.Van.Key
 
-Char:SetPrimaryPartCFrame(VAN_BUTTON.CFrame * CFrame.new(0,0,3))
+VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
 
 task.wait(1)
 
@@ -113,10 +113,13 @@ PlaceItem("Book",true)
 
 task.wait(1)
 GetItem("Crucifix")
-
+task.wait(0.1)
+EquipItem("Crucifix")
+task.wait(0.1)
+DropItem("Crucifix")
 --GetItem("Motion Sensor")
 --GetItem("Crucifix")
-
+task.wait(0.1)
 coroutine.wrap(NewTween)(WS.Map.TouchParts.Inside.Inside)
 
 task.wait(1)
