@@ -60,6 +60,17 @@ WS.ChildAdded:Connect(function(child)
     end
 end)
 
+plr:GetAttributeChangedSignal("Tool"):Connect(function()
+    if plr:GetAttribute("Tool") == "EMF Reader" then
+        local emf = Char.Tool
+        local emf_5 = emf.Main:FindFirstChild("EMF 5").GetPropertyChangedSignal:Connect(function()
+            if emf.Main:FindFirstChild("EMF 5").Playing == true then
+                PutEvidence("EMF 5")
+            end
+        end)
+    end
+end)
+
 print("INIT: EMF")
 
 
