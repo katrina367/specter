@@ -14,6 +14,7 @@ Evidence = {}
 local orbs = WS.Orbs
 local fingerprint = WS.Fingerprints
 local breath = Char.Head:WaitForChild("BreathAttachment").Breath
+local SpiritBox = events.SpiritBox
 
 orbs.ChildAdded:Connect(function(child)
     PutEvidence("Orbs")
@@ -34,19 +35,15 @@ EquipmentPath.ChildAdded:Connect(function(child)
         local writingEvidence = book:GetAttributeChangedSignal("Written"):Connect(function()
             PutEvidence("Writing")
         end)
-    elseif child.Name == "Spirit Box" then
-        task.wait(1)
-        local box = EquipmentPath:FindFirstChild("Spirit Box")
-
-        box.Main.ChildAdded:Connect(function(child2)
-            if box.Main.Responses:FindFirstChild(child2.Name) or child2.Name == "Template" then
-                PutEvidence("Spirit Box")
-            end
-        end)
     end
 end)
+print("INIT: BOOK")
 
-print("INIT: BOOK, SPIRIT BOX")
+SpiritBox.OnClientEvent:Connect(function(...)
+    PutEvidence("Spirit Box")
+end)
+
+print("INIT: SPIRIT BOX")
 
 WS.ChildAdded:Connect(function(child)
     if child.Name == "emfpart5" then

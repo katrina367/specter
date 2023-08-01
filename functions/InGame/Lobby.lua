@@ -15,21 +15,21 @@ local MapArgs = {[1] = "Map",[2] = "Asylum"}
 local DifficultyArgs = {[1] = "Difficulty",[2] = "Insanity"}
 
 CreateLobby:InvokeServer(unpack(LobbyArgs))
-
 UpdateLobbyInfo:FireServer(unpack(MapArgs))
-
 UpdateLobbyInfo:FireServer(unpack(DifficultyArgs))
 
 local function AddEquipment(Type, amount)
     local EquipRemote = events:WaitForChild("AddEquipment")
-    local args = {[1] = Type,[2] = amount}
 
-    EquipRemote:InvokeServer(unpack(args))
+    EquipRemote:InvokeServer(unpack({
+        [1] = Type,
+        [2] = amount
+    }))
 end
 
 AddEquipment("Camera", 1)
 AddEquipment("Crucifix", 1)
 
-task.wait(1)
+task.wait(0.5)
 
 StartLobby:InvokeServer()

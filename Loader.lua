@@ -13,6 +13,7 @@ end
 WS = game:GetService("Workspace")
 rep = game:GetService("ReplicatedStorage")
 TweenService = game:GetService("TweenService")
+rs = game:GetService("RunService")
 
 events = rep.Events
 

@@ -13,6 +13,9 @@ AI_EVIDENCE = {
     ['Motion'] = false,
 }
 
+
+local WaypointRemote = events:WaitForChild("Waypoint")
+
 for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChildren() do
     if v:IsA("Frame") then
         table.insert(ImportantGUIS, v)
@@ -27,24 +30,27 @@ end
 
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
 
-function Defense()
-    EquipItem("Crucifix")
-    task.wait(0.1)
-    PlaceItem("Crucifix", true)
-    task.wait(0.1)
-    EquipItem("EMF Reader")
-    task.wait(0.1)
-    Toggle()
-end
-local WaypointRemote = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Waypoint")
-local rs = game:GetService("RunService")
-local function waypoint()
-    local args = {
-        [1] = WS.Ghost.HumanoidRootPart.Position
-    }
+local LightSwitches = WS.Map.Lightswitches:GetChildren()
+local LightRemote = events.Lightswitch
 
-    WaypointRemote:FireServer(unpack(args))
+local function fireLight(v)
+    LightRemote:FireServer(v)
 end
+
+for _, v in pairs(LightSwitches) do
+    v:GetAttributeChangedSignal("On"):Connect(function()
+        if v:GetAttribute("On") == true then
+            coroutine.wrap(fireLight)(v)
+        end
+    end)
+    rs.RenderStepped:Wait()
+    coroutine.wrap(fireLight)(v)
+end
+
+local function waypoint()
+    WaypointRemote:FireServer(WS.Ghost.HumanoidRootPart.Position)
+end
+
 events.Hunt.OnClientEvent:Connect(function()
     Hunting = not Hunting
     
@@ -57,10 +63,6 @@ events.Hunt.OnClientEvent:Connect(function()
         until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or not Hunting
         
         if not Hunting then return end
-        
-        if EquipmentPath:FindFirstChild("Crucifix") then
-            coroutine.wrap(Defense)()
-        end
         
         repeat 
             Char:SetPrimaryPartCFrame(WS.Ghost.PrimaryPart.CFrame * CFrame.new(0,8,-6)) 
@@ -78,7 +80,6 @@ local Channel = TSC.TextChannels.RBXGeneral
 
 
 task.spawn(function()
-
     while true do
         Channel:SendAsync("Where are you? Are you here? How old are you? Can you write in the book? Can you leave a fingerprint? Are you there? Are you a boy? Are you a girl? Show us a sign. Can you turn on the lights?")
         task.wait(5)
@@ -130,24 +131,41 @@ task.wait(60 * 3)
 
 local ghost = MakeGuess()
 
-if ghost == nil then 
-    return 
-end
-
-for _, v2 in ipairs(ImportantGUIS) do
-    if v2.Name == ghost then
-        for _, signal in pairs(getconnections(v2.Box.Activated)) do
-            signal:Fire()
+if ghost ~= nil then
+    for _, v2 in ipairs(ImportantGUIS) do
+        if v2.Name == ghost then
+            for _, signal in pairs(getconnections(v2.Box.Activated)) do
+                signal:Fire()
+            end
         end
+    end
+else
+    if table.find(ghost, "Thaye") then
+        for _, v2 in ipairs(ImportantGUIS) do
+            if v2.Name == "Thaye" then
+                for _, signal in pairs(getconnections(v2.Box.Activated)) do
+                    signal:Fire()
+                end
+            end
+        end
+        
         local VAN_BUTTON = WS.Van.Close
-        Char:SetPrimaryPartCFrame(VAN_BUTTON.CFrame * CFrame.new(0,0,3))
-        
-        task.wait(0.3)
 
-        Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+        delay(5, function()
+            while true do
+                VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
+                rs.RenderStepped:Wait()
+                Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+            end
+        end)
         
-        task.wait(0.2)
+        task.wait(7)
         
-        fireproximityprompt(VAN_BUTTON.VanPrompt)
+        fireproximityprompt(WS.Van.Close.VanPrompt)
     end
 end
+
+
+
+
+
