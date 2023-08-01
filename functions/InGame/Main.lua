@@ -53,7 +53,7 @@ events.Hunt.OnClientEvent:Connect(function()
         repeat 
             rs.RenderStepped:Wait()
             
-            coroutine.wrap(Waypoint)()
+            coroutine.wrap(waypoint)()
         until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or not Hunting
         
         if not Hunting then return end
