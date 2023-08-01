@@ -6,6 +6,10 @@ print("  ----  CURRENT FEATURES  ----  " .. "  ----  FEATURES IN DEVELOPMENT  --
 Players = game:GetService("Players")
 plr = Players.LocalPlayer
 
+for _, v in next, getconnections(plr.Idled) do
+    v:Disable()
+end
+
 WS = game:GetService("Workspace")
 rep = game:GetService("ReplicatedStorage")
 TweenService = game:GetService("TweenService")
