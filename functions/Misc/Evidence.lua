@@ -8,7 +8,6 @@ Char.ChildAdded:Connect(function(child)
     end
 end)
 
-
 Evidence = {}
 
 local orbs = WS.Orbs
@@ -38,12 +37,6 @@ EquipmentPath.ChildAdded:Connect(function(child)
     end
 end)
 print("INIT: BOOK")
-
-SpiritBox.OnClientEvent:Connect(function()
-    PutEvidence("Spirit Box")
-end)
-
-print("INIT: SPIRIT BOX")
 
 WS.ChildAdded:Connect(function(child)
     if child.Name == "emfpart5" then
@@ -88,6 +81,7 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
             local str = string.format("%.5f", num)
 
             task.wait(tonumber(str))
+
             local color = GridBlock.BrickColor.Color
 
             if color.r > color.g and color.r > color.b then
@@ -109,3 +103,8 @@ print("INIT: MOTION")
 
 -- // UNFINISHED \\ -- 
 
+SpiritBox.OnClientEvent:Connect(function()
+    PutEvidence("Spirit Box")
+end)
+
+print("INIT: SPIRIT BOX")

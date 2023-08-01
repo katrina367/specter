@@ -151,13 +151,13 @@ function PutEvidence(button : string)
     for i, v in ipairs(ImportantGUIS) do
         if v.Name == button then
             for _, signal in pairs(getconnections(v.Box.Activated)) do
+                signal:Fire()
                 print("   ---------   Entered Evidence   ---------")
                 print("   [1]   EVIDENCE: " .. button)
                 AI_EVIDENCE[button] = true
-                signal:Fire()
             end
             
-            task.wait(1)
+            task.wait(2)
 
             local ghost = MakeGuess()
 

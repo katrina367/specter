@@ -31,7 +31,7 @@ end
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
 
 local LightSwitches = WS.Map.Lightswitches:GetChildren()
-local LightRemote = events.Lightswitch
+local LightRemote = events:WaitForChild("Lightswitch")
 
 local function fireLight(v)
     LightRemote:FireServer(v)
@@ -76,8 +76,6 @@ end)
 
 local TSC = game:GetService("TextChatService")
 local Channel = TSC.TextChannels.RBXGeneral
-
-
 
 task.spawn(function()
     while true do
@@ -150,23 +148,23 @@ else
             end
         end
     end
-    
-    local VAN_BUTTON = WS.Van.Close
 
-    delay(5, function()
-        while true do
-            VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
-            rs.RenderStepped:Wait()
-            Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
-        end
-    end)
-    
-    task.wait(7)
-    
-    fireproximityprompt(WS.Van.Close.VanPrompt)
 end
 
 
 
+    
+local VAN_BUTTON = WS.Van.Close
 
+delay(5, function()
+    while true do
+        VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
+        rs.RenderStepped:Wait()
+        Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+    end
+end)
+
+task.wait(7)
+
+fireproximityprompt(WS.Van.Close.VanPrompt)
 
