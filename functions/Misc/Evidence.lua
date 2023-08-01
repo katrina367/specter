@@ -14,7 +14,7 @@ Evidence = {}
 local orbs = WS.Orbs
 local fingerprint = WS.Fingerprints
 local breath = Char.Head:WaitForChild("BreathAttachment").Breath
-local SpiritBox = events.SpiritBox
+local SpiritBox = events:WaitForChild("SpiritBox")
 
 orbs.ChildAdded:Connect(function(child)
     PutEvidence("Orbs")
@@ -39,7 +39,7 @@ EquipmentPath.ChildAdded:Connect(function(child)
 end)
 print("INIT: BOOK")
 
-SpiritBox.OnClientEvent:Connect(function(...)
+SpiritBox.OnClientEvent:Connect(function()
     PutEvidence("Spirit Box")
 end)
 

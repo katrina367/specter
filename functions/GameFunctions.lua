@@ -88,7 +88,7 @@ function MakeGuess()
     elseif #collectedEvidence == 3 then
         local foundGhost = findMatch(collectedEvidence, Ghosts)
         if foundGhost then
-            return foundGhost
+            return {foundGhost}
         else
             return potentialGhosts
         end
@@ -161,7 +161,7 @@ function PutEvidence(button : string)
 
             local ghost = MakeGuess()
 
-            if ghost == nil then 
+            if #ghost ~= 1 then 
                 return 
             end
             
