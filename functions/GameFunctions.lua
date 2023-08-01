@@ -84,11 +84,11 @@ function MakeGuess()
     end
 
     if #potentialGhosts == 1 then
-        return {potentialGhosts[1]}
+        return potentialGhosts[1]
     elseif #collectedEvidence == 3 then
         local foundGhost = findMatch(collectedEvidence, Ghosts)
         if foundGhost then
-            return {foundGhost}
+            return foundGhost
         else
             return potentialGhosts
         end
@@ -159,7 +159,7 @@ function PutEvidence(button : string)
             
             task.wait(1)
 
-            local ghost = MakeGuess()
+            local ghost = {MakeGuess()}
 
             if #ghost ~= 1 then 
                 return 
