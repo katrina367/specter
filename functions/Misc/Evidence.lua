@@ -1,3 +1,14 @@
+Char.ChildAdded:Connect(function(child)
+    if child.Name == "Tool" then
+        if plr:GetAttribute("Tool") == "EMF Reader" then
+            child.Main:FindFirstChild("EMF 5").GetPropertyChangedSignal:Connect(function()
+                PutEvidence("EMF 5")
+            end)
+        end
+    end
+end)
+
+
 Evidence = {}
 
 local orbs = WS.Orbs
@@ -57,16 +68,6 @@ WS.ChildAdded:Connect(function(child)
         task.wait(1)
         Char:SetPrimaryPartCFrame(CurrentCFrame)
         PutEvidence("EMF 5")
-    end
-end)
-
-Char.ChildAdded:Connect(function(child)
-    if child.Name == "Tool" then
-        if plr:GetAttribute("Tool") == "EMF Reader" then
-            child.Main:FindFirstChild("EMF 5").GetPropertyChangedSignal:Connect(function()
-                PutEvidence("EMF 5")
-            end)
-        end
     end
 end)
 
