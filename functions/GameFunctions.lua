@@ -90,7 +90,7 @@ function MakeGuess()
         if foundGhost then
             return foundGhost
         else
-            return potentialGhosts
+            return nil
         end
     end
 end
@@ -159,9 +159,9 @@ function PutEvidence(button : string)
             
             task.wait(1)
 
-            local ghost = {MakeGuess()}
+            local ghost = MakeGuess()
 
-            if #ghost ~= 1 then 
+            if ghost == nil then 
                 return 
             end
             

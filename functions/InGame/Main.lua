@@ -132,7 +132,7 @@ task.wait(60 * 3)
 
 local ghost = MakeGuess()
 
-if #ghost == 1 then
+if ghost ~= nil then
     for _, v2 in ipairs(ImportantGUIS) do
         if v2.Name == ghost then
             for _, signal in pairs(getconnections(v2.Box.Activated)) do
@@ -141,7 +141,7 @@ if #ghost == 1 then
         end
     end
 else
-    if table.find(ghost, "Thaye") then
+    if AI_EVIDENCE.Freezing == true then
         for _, v2 in ipairs(ImportantGUIS) do
             if v2.Name == "Thaye" then
                 for _, signal in pairs(getconnections(v2.Box.Activated)) do

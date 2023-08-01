@@ -93,13 +93,11 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
             if color.r > color.g and color.r > color.b then
                 if not detected then detected = true else return end
                 PutEvidence("Motion")
-                AI_EVIDENCE.Motion = true
                 task.wait(10)
                 detected = false
             elseif color.b > color.g and color.b > color.r then
                 if not detected then detected = true else return end
                 print("   ---------   Paranormal Motion Not Found   ---------   ")
-                AI_EVIDENCE.Motion = false
                 task.wait(10)
                 detected = false
             end
