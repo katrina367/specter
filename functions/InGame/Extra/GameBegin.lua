@@ -54,6 +54,7 @@ repeat
     end
     
     fireproximityprompt(WS.Map.Bone.BonePrompt)
+    task.wait(0.5)
 until not WS.Map:FindFirstChild("Bone")
 
 GetItem("Motion Sensor")
