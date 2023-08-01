@@ -84,7 +84,7 @@ function MakeGuess()
     end
 
     if #potentialGhosts == 1 then
-        return potentialGhosts[1]
+        return {potentialGhosts[1]}
     elseif #collectedEvidence == 3 then
         local foundGhost = findMatch(collectedEvidence, Ghosts)
         if foundGhost then
