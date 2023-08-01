@@ -1,6 +1,6 @@
 --!strict
 task.wait(20)
-print("   -----------------------------------   Specter Autofarm V0.06 BETA   -----------------------------------   ")
+print("   -----------------------------------   Specter Autofarm V1 ALPHA   -----------------------------------   ")
 print("  ----  CURRENT FEATURES  ----  " .. "  ----  FEATURES IN DEVELOPMENT  ----  ".. "  ----  FEATURES IN DEVELOPMENT  ----  ")
 
 Players = game:GetService("Players")
