@@ -37,14 +37,14 @@ function Defense()
     Toggle()
 end
 local WaypointRemote = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Waypoint")
-
+local rs = game:GetService("RunService")
 events.Hunt.OnClientEvent:Connect(function()
     Hunting = not Hunting
     
     if Hunting then
         
         repeat 
-            task.wait()     
+            rs.RenderStepped:Wait()
             
             local args = {
                 [1] = WS.Ghost.HumanoidRootPart.Position
