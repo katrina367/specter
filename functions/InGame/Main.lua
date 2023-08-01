@@ -38,6 +38,13 @@ function Defense()
 end
 local WaypointRemote = game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Waypoint")
 local rs = game:GetService("RunService")
+local function waypoint()
+    local args = {
+        [1] = WS.Ghost.HumanoidRootPart.Position
+    }
+
+    WaypointRemote:FireServer(unpack(args))
+end
 events.Hunt.OnClientEvent:Connect(function()
     Hunting = not Hunting
     
@@ -46,12 +53,7 @@ events.Hunt.OnClientEvent:Connect(function()
         repeat 
             rs.RenderStepped:Wait()
             
-            local args = {
-                [1] = WS.Ghost.HumanoidRootPart.Position
-            }
-        
-            WaypointRemote:FireServer(unpack(args))
-
+            coroutine.wrap(Waypoint)()
         until (Char.PrimaryPart.Position - WS.Ghost.PrimaryPart.Position).Magnitude < 10 or not Hunting
         
         if not Hunting then return end
