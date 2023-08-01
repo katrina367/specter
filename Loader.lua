@@ -1,5 +1,5 @@
 --!strict
-
+task.wait(20)
 print("   -----------------------------------   Specter Autofarm V0.06 BETA   -----------------------------------   ")
 print("  ----  CURRENT FEATURES  ----  " .. "  ----  FEATURES IN DEVELOPMENT  ----  ".. "  ----  FEATURES IN DEVELOPMENT  ----  ")
 
