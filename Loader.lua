@@ -1,5 +1,5 @@
 --!strict
-task.wait(20)
+task.wait(15)
 print("   -----------------------------------   Specter Autofarm V1.2 ALPHA   -----------------------------------   ")
 print("  ----  CURRENT FEATURES  ----  " .. "  ----  FEATURES IN DEVELOPMENT  ----  ".. "  ----  FEATURES IN DEVELOPMENT  ----  ")
 

@@ -115,7 +115,7 @@ function GetItem(Item : string)
     local foundItem = EquipmentPath:FindFirstChild(Item)
     if foundItem then
         PickupRemote:InvokeServer(foundItem)
-        Notification.new("info", "Grabbed Item", Item, true, 1)
+        Notification.new("info", "Picked Item Up", Item, true, 1)
     end
 end
 
@@ -136,11 +136,10 @@ end
 function Toggle()
     repeat task.wait(0.1) until not Hunting
     events:WaitForChild("ToggleEquipment"):InvokeServer()
-    Notification.new("info", "Toggled Item", plr:GetAttribute("Item"), true, 1)
+    print("Toggled Item")
 end
 
 function PutEvidence(button : string)
-    
     if AI_EVIDENCE[tostring(button)] == true then 
         return
     end
@@ -153,7 +152,7 @@ function PutEvidence(button : string)
                 AI_EVIDENCE[button] = true
             end
             
-            task.wait(2)
+            task.wait(0.4)
 
             local ghost = MakeGuess()
 
@@ -161,23 +160,23 @@ function PutEvidence(button : string)
                 return 
             end
             
-            for _, v2 in ipairs(ImportantGUIS) do
-                if v2.Name == ghost then
-                    for _, signal in pairs(getconnections(v2.Box.Activated)) do
-                        signal:Fire()
-                    end
-                    local VAN_BUTTON = WS.Van.Close
-                    Char:SetPrimaryPartCFrame(VAN_BUTTON.CFrame * CFrame.new(0,0,3))
+            for _, v2 in ipairs(ImportantGUIS) do if v2.Name == ghost then
                     
-                    task.wait(0.3)
-
-                    Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
-                    
-                    task.wait(0.2)
-                    
-                    fireproximityprompt(VAN_BUTTON.VanPrompt)
+                for _, signal in pairs(getconnections(v2.Box.Activated)) do
+                    signal:Fire()
                 end
-            end
+
+                local VAN_BUTTON = WS.Van.Close
+                delay(5, function()
+                    Notification.new("success", "Leaving", "Ghost Guessed: " .. ghost, true, 4) 
+                    while true do
+                        VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
+                        rs.RenderStepped:Wait()
+                        Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+                        fireproximityprompt(WS.Van.Close.VanPrompt)
+                    end
+                end)                    
+            end end
         end
     end
 end
@@ -204,6 +203,5 @@ function PlaceItem(Item : string, PlaceAtCharacter : bool)
         PlaceRemote:InvokeServer(unpack(PlacementArgs)) 
         Notification.new("info", "Placed Item", Item, true, 1) 
     end)
-  
 end
 

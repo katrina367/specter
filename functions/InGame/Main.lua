@@ -148,12 +148,16 @@ else
                 end
             end
         end
+    else then
+        for _, v2 in ipairs(ImportantGUIS) do
+            if v2.Name == "Shade" then
+                for _, signal in pairs(getconnections(v2.Box.Activated)) do
+                    signal:Fire()
+                end
+            end
+        end
     end
-
 end
-
-
-
     
 local VAN_BUTTON = WS.Van.Close
 
@@ -162,10 +166,6 @@ delay(5, function()
         VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
         rs.RenderStepped:Wait()
         Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+        fireproximityprompt(WS.Van.Close.VanPrompt)
     end
 end)
-
-task.wait(7)
-
-fireproximityprompt(WS.Van.Close.VanPrompt)
-
