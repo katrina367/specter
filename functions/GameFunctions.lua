@@ -146,7 +146,6 @@ function PutEvidence(button : string)
 
     for i, v in ipairs(ImportantGUIS) do
         if v.Name == button then
-            repeat task.wait() until Hunting == false
             for _, signal in pairs(getconnections(v.Box.Activated)) do
                 signal:Fire()
                 Notification.new("success", "Entered Evidence:", button, true, 4) 

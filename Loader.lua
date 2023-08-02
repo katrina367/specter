@@ -1,5 +1,6 @@
 --!strict
 repeat task.wait() until game:IsLoaded()
+task.wait(5)
 
 Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/Notifications.lua", true))()
 
@@ -20,7 +21,7 @@ events = rep.Events
 local LobbyId = 8267733039
 local GameId = 8417221956
 
-Notification.new("success", "Specter Autofarm V1.2.3 ALPHA", "Made by Drastic", true, 3)
+Notification.new("success", "Specter Autofarm V1.2.4 ALPHA", "Made by Drastic", true, 3)
 
 if game.PlaceId == LobbyId then
     task.wait(1)
