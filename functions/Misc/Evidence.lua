@@ -93,4 +93,4 @@ SpiritBox.OnClientEvent:Connect(function()
     PutEvidence("Spirit Box")
 end)
 
-Notification.new("success", "Evidence Monitor", "Success fully loaded!")
+Notification.new("success", "Evidence Monitor", "Success fully loaded!", true, 3)

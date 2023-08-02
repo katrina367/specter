@@ -142,7 +142,6 @@ end
 function PutEvidence(button : string)
     
     if AI_EVIDENCE[tostring(button)] == true then 
-        Notification.new("error", "Failed to put in Evidence: "..button, "REASON: Evidence already entered.")          
         return
     end
 
@@ -150,7 +149,7 @@ function PutEvidence(button : string)
         if v.Name == button then
             for _, signal in pairs(getconnections(v.Box.Activated)) do
                 signal:Fire()
-                Notification.new("success", "Entered Evidence:", button, true, 4) 
+                Notification.new("success", "Entered Evidence:" .. button, true, 4) 
                 AI_EVIDENCE[button] = true
             end
             
