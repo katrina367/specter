@@ -170,6 +170,8 @@ function PutEvidence(button : string)
                     delay(5, function()
                         Notification.new("success", "Leaving", "Ghost Guessed: " .. ghost, true, 4) 
                         while true do
+                            Char:SetPrimaryPartCFrame(WS.Van.Spawn.CFrame)
+                            task.wait(0.2)
                             VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-2)
                             task.wait(0.2)
                             Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)

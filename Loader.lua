@@ -1,7 +1,7 @@
 --!strict
 task.wait(15)
-print("   -----------------------------------   Specter Autofarm V1.2 ALPHA   -----------------------------------   ")
-print("  ----  CURRENT FEATURES  ----  " .. "  ----  FEATURES IN DEVELOPMENT  ----  ".. "  ----  FEATURES IN DEVELOPMENT  ----  ")
+-- print("   -----------------------------------   Specter Autofarm V1.2 ALPHA   -----------------------------------   ")
+-- print("  ----  CURRENT FEATURES  ----  " .. "  ----  FEATURES IN DEVELOPMENT  ----  ".. "  ----  FEATURES IN DEVELOPMENT  ----  ")
 
 Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/Notifications.lua", true))()
 
@@ -36,7 +36,7 @@ events = rep.Events
 local LobbyId = 8267733039
 local GameId = 8417221956
 
-Notification.new("success", "Specter Autofarm V1.2 ALPHA", "Made by Drastic", true, 3)
+Notification.new("success", "Specter Autofarm V1.2.3 ALPHA", "Made by Drastic", true, 3)
 
 if game.PlaceId == LobbyId then
     task.wait(1)

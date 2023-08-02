@@ -92,12 +92,11 @@ local Camera = WS.CurrentCamera
 
 for _, v in pairs(waterP:GetChildren()) do
     v.Running:GetPropertyChangedSignal("Playing"):Connect(function()
-        task.wait(20)
+        task.wait(30)
         if v.Running == false then return end
 
         repeat task.wait()
         until Hunting == false
-        
 
         Char:SetPrimaryPartCFrame(v.CFrame * CFrame.new(0,5,0))
 
@@ -165,6 +164,8 @@ local VAN_BUTTON = WS.Van.Close
 
 delay(5, function()
     while true do
+        Char:SetPrimaryPartCFrame(WS.Van.Spawn.CFrame)
+        task.wait(0.2)
         VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-2)
         task.wait(0.2)
         Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
