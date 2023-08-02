@@ -3,7 +3,7 @@ task.wait(20)
 print("   -----------------------------------   Specter Autofarm V1.2 ALPHA   -----------------------------------   ")
 print("  ----  CURRENT FEATURES  ----  " .. "  ----  FEATURES IN DEVELOPMENT  ----  ".. "  ----  FEATURES IN DEVELOPMENT  ----  ")
 
-Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
+Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/Notifications.lua", true))()
 
 --[[
 Notification.new("error", "Error Heading", "Error body message.") -- Args(<string> Type, <string> Heading, <string> Body, <boolean?> AutoRemoveNotif, <number?> AutoRemoveTime, <function?> OnCloseFunction)
@@ -36,7 +36,7 @@ events = rep.Events
 local LobbyId = 8267733039
 local GameId = 8417221956
 
-Notification.new("success", "Specter Autofarm V1.2 ALPHA", "Made by Drastic", true, 10)
+Notification.new("success", "Specter Autofarm V1.2 ALPHA", "Made by Drastic", true, 3)
 
 if game.PlaceId == LobbyId then
     task.wait(1)
