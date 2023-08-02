@@ -13,6 +13,12 @@ local root = Char.HumanoidRootPart
 local Ghost = WS:WaitForChild("Ghost").PrimaryPart
 local Camera = WS.CurrentCamera
 
+
+local guiPath = plr.PlayerGui.Gui.Journal.Content.Evidence
+local EvidencePath = guiPath.EvidenceCheckboxes
+local GhostPath = guiPath.GhostCheckboxes
+
+
 local ToolbarHotkeys = {
     [1] = Enum.KeyCode.One,
     [2] = Enum.KeyCode.Two,
@@ -143,46 +149,43 @@ function PutEvidence(button : string)
     if AI_EVIDENCE[tostring(button)] == true then 
         return
     end
+    local EvidenceBox = EvidencePath:FindFirstChild(tostring(button))
 
-    for i, v in ipairs(ImportantGUIS) do
-        if v.Name == button then
-            for _, signal in pairs(getconnections(v.Box.Activated)) do
-                signal:Fire()
-                Notification.new("success", "Entered Evidence:", button, true, 4) 
-                AI_EVIDENCE[button] = true
-            end
-            
-            task.wait(0.4)
-
-            local ghost = MakeGuess()
-
-            if ghost == nil then 
-                return 
-            end
-            
-            for _, v2 in ipairs(ImportantGUIS) do 
-                if v2.Name == ghost then
-                    for _, signal in pairs(getconnections(v2.Box.Activated)) do
-                        signal:Fire()
-                    end
-
-                    local VAN_BUTTON = WS.Van.Close
-                    delay(5, function()
-                        Notification.new("success", "Leaving", "Ghost Guessed: " .. ghost, true, 4) 
-                        while true do
-                            Char:SetPrimaryPartCFrame(WS.Van.Spawn.CFrame)
-                            task.wait(0.2)
-                            VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-2)
-                            task.wait(0.2)
-                            Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
-                            task.wait(0.2)
-                            fireproximityprompt(WS.Van.Close.VanPrompt)
-                        end
-                    end)                    
-                end 
-            end
-        end
+    for _, signal in pairs(getconnections(EvidenceBox.Box.Activated)) do
+        signal:Fire()
+        Notification.new("success", "Entered Evidence:", button, true, 4) 
+        AI_EVIDENCE[button] = true
     end
+    
+    task.wait(0.4)
+
+    local ghost = MakeGuess()
+
+    if ghost == nil then 
+        return 
+    end
+    
+    local GhostBox = GhostPath:FindFirstChild(tostring(ghost))
+
+    for _, signal in pairs(getconnections(GhostBox.Box.Activated)) do
+        signal:Fire()
+    end
+
+    local VAN_BUTTON = WS.Van.Close
+    delay(5, function()
+        Notification.new("success", "Leaving", "Ghost Guessed: " .. ghost, true, 4) 
+        while true do
+            Char:SetPrimaryPartCFrame(WS.Van.Spawn.CFrame)
+            task.wait(0.2)
+            VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-2)
+            task.wait(0.2)
+            Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+            task.wait(0.2)
+            fireproximityprompt(WS.Van.Close.VanPrompt)
+        end
+    end)                    
+
+
 end
 
 function PlaceItem(Item : string, PlaceAtCharacter : bool)

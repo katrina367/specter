@@ -4,7 +4,7 @@ repeat task.wait() until game:IsLoaded()
 Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/Notifications.lua", true))()
 
 Players = game:GetService("Players")
-plr = Players.LocalPlayer
+plr = Players:WaitForChild("LocalPlayer")
 
 for _, v in next, getconnections(plr.Idled) do
     v:Disable()
@@ -15,7 +15,7 @@ rep = game:GetService("ReplicatedStorage")
 TweenService = game:GetService("TweenService")
 rs = game:GetService("RunService")
 
-events = rep.Events
+events = rep:WaitForChild("Events")
 
 local LobbyId = 8267733039
 local GameId = 8417221956
