@@ -16,17 +16,7 @@ AI_EVIDENCE = {
 
 local WaypointRemote = events:WaitForChild("Waypoint")
 
-for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChildren() do
-    if v:IsA("Frame") then
-        table.insert(ImportantGUIS, v)
-    end
-end
 
-for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.GhostCheckboxes:GetChildren() do
-    if v:IsA("Frame") then
-        table.insert(ImportantGUIS, v)
-    end
-end
 
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
 
@@ -112,6 +102,18 @@ for _, v in pairs(waterP:GetChildren()) do
         Char:SetPrimaryPartCFrame(WS.emfpart2.CFrame)
 
     end)
+end
+
+for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.EvidenceCheckboxes:GetChildren() do
+    if v:IsA("Frame") then
+        table.insert(ImportantGUIS, v)
+    end
+end
+
+for _, v in plr.PlayerGui.Gui.Journal.Content.Evidence.GhostCheckboxes:GetChildren() do
+    if v:IsA("Frame") then
+        table.insert(ImportantGUIS, v)
+    end
 end
 
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua"))()
