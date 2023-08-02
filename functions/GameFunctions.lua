@@ -115,7 +115,7 @@ function GetItem(Item : string)
     local foundItem = EquipmentPath:FindFirstChild(Item)
     if foundItem then
         PickupRemote:InvokeServer(foundItem)
-        print("Picked up " .. Item)
+        Notification.new("info", "Grabbed Item", Item, true, 1)
     end
 end
 
@@ -123,28 +123,26 @@ function EquipItem(Item : string)
     repeat task.wait(0.1) until not Hunting
 
     ClientMain.equipTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
-    print("Equipped " .. Item)
+    Notification.new("info", "Equipped Item", Item, true, 1)
 end
 
 function DropItem(Item : string)
     repeat task.wait(0.1) until not Hunting
     
     ClientMain.dropTool("", Enum.UserInputState.Begin, {KeyCode = ToolbarHotkeys[FindItemInInventory(Item)]})
-    print("Dropped " .. Item)
+    Notification.new("info", "Dropped Item", Item, true, 1)
 end
 
 function Toggle()
     repeat task.wait(0.1) until not Hunting
     events:WaitForChild("ToggleEquipment"):InvokeServer()
-    print("Toggled")
+    Notification.new("info", "Toggled Item", plr:GetAttribute("Item"), true, 1)
 end
 
 function PutEvidence(button : string)
     
     if AI_EVIDENCE[tostring(button)] == true then 
-        print("   ---------   Failed to put in evidence   ---------")
-        print("   [1]   EVIDENCE: " .. button)
-        print("   [2]   REASON:   " .. "Evidence already entered")            
+        Notification.new("error", "Failed to put in Evidence: "..button, "REASON: Evidence already entered.")          
         return
     end
 
@@ -152,8 +150,7 @@ function PutEvidence(button : string)
         if v.Name == button then
             for _, signal in pairs(getconnections(v.Box.Activated)) do
                 signal:Fire()
-                print("   ---------   Entered Evidence   ---------")
-                print("   [1]   EVIDENCE: " .. button)
+                Notification.new("success", "Entered Evidence:", button, true, 4) 
                 AI_EVIDENCE[button] = true
             end
             
@@ -205,7 +202,8 @@ function PlaceItem(Item : string, PlaceAtCharacter : bool)
             }
         end
     
-        PlaceRemote:InvokeServer(unpack(PlacementArgs))  
+        PlaceRemote:InvokeServer(unpack(PlacementArgs)) 
+        Notification.new("info", "Placed Item", Item, true, 1) 
     end)
   
 end

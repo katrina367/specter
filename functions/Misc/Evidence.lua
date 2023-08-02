@@ -19,13 +19,9 @@ orbs.ChildAdded:Connect(function(child)
     PutEvidence("Orbs")
 end)
 
-print("INIT: ORBS")
-
 fingerprint.ChildAdded:Connect(function(child)
     PutEvidence("Fingerprints")
 end)
-
-print("INIT: FINGERPRINTS")
 
 EquipmentPath.ChildAdded:Connect(function(child)
     if child.Name == "Book" then
@@ -36,7 +32,6 @@ EquipmentPath.ChildAdded:Connect(function(child)
         end)
     end
 end)
-print("INIT: BOOK")
 
 WS.ChildAdded:Connect(function(child)
     if child.Name == "emfpart5" then
@@ -61,14 +56,9 @@ WS.ChildAdded:Connect(function(child)
     end
 end)
 
-print("INIT: EMF")
-
-
 breath:GetPropertyChangedSignal("Enabled"):Connect(function()
     PutEvidence("Freezing Temperature")
 end)
-
-print("INIT: FREEZING")
 
 local detected = false
 
@@ -91,7 +81,7 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
                 detected = false
             elseif color.b > color.g and color.b > color.r then
                 if not detected then detected = true else return end
-                print("   ---------   Paranormal Motion Not Found   ---------   ")
+                Notification.new("info", "Info", "Paranormal Motion not found.", true, 1)
                 task.wait(10)
                 detected = false
             end
@@ -99,12 +89,8 @@ local motion = WS.MotionGrids.ChildAdded:Connect(function(child)
     end)
 end)
 
-print("INIT: MOTION")
-
--- // UNFINISHED \\ -- 
-
 SpiritBox.OnClientEvent:Connect(function()
     PutEvidence("Spirit Box")
 end)
 
-print("INIT: SPIRIT BOX")
+Notification.new("success", "Evidence Monitor", "Success fully loaded!")
