@@ -40,7 +40,9 @@ end
 for _, v in pairs(LightSwitches) do
     v:GetAttributeChangedSignal("On"):Connect(function()
         if v:GetAttribute("On") == true then
+            repeat rs.RenderStepped:Wait()
             coroutine.wrap(fireLight)(v)
+            until v:GetAttribute("On") == true
         end
     end)
     rs.RenderStepped:Wait()
@@ -148,7 +150,7 @@ else
                 end
             end
         end
-    else then
+    else
         for _, v2 in ipairs(ImportantGUIS) do
             if v2.Name == "Shade" then
                 for _, signal in pairs(getconnections(v2.Box.Activated)) do
