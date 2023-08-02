@@ -104,12 +104,6 @@ for _, v in pairs(waterP:GetChildren()) do
     end)
 end
 
-for _, v in :GetChildren() do
-    if v:IsA("Frame") then
-        table.insert(ImportantGUIS, v)
-    end
-end
-
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/GameBegin.lua"))()
 
 task.wait(60 * 3)
