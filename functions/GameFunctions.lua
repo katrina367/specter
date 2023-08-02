@@ -160,23 +160,24 @@ function PutEvidence(button : string)
                 return 
             end
             
-            for _, v2 in ipairs(ImportantGUIS) do if v2.Name == ghost then
-                    
-                for _, signal in pairs(getconnections(v2.Box.Activated)) do
-                    signal:Fire()
-                end
-
-                local VAN_BUTTON = WS.Van.Close
-                delay(5, function()
-                    Notification.new("success", "Leaving", "Ghost Guessed: " .. ghost, true, 4) 
-                    while true do
-                        VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
-                        rs.RenderStepped:Wait()
-                        Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
-                        fireproximityprompt(WS.Van.Close.VanPrompt)
+            for _, v2 in ipairs(ImportantGUIS) do 
+                if v2.Name == ghost then
+                    for _, signal in pairs(getconnections(v2.Box.Activated)) do
+                        signal:Fire()
                     end
-                end)                    
-            end end
+
+                    local VAN_BUTTON = WS.Van.Close
+                    delay(5, function()
+                        Notification.new("success", "Leaving", "Ghost Guessed: " .. ghost, true, 4) 
+                        while true do
+                            VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
+                            rs.RenderStepped:Wait()
+                            Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+                            fireproximityprompt(WS.Van.Close.VanPrompt)
+                        end
+                    end)                    
+                end 
+            end
         end
     end
 end
