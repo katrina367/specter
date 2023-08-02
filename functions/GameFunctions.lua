@@ -149,7 +149,7 @@ function PutEvidence(button : string)
         if v.Name == button then
             for _, signal in pairs(getconnections(v.Box.Activated)) do
                 signal:Fire()
-                Notification.new("success", "Entered Evidence:" .. button, true, 4) 
+                Notification.new("success", "Entered Evidence:", button, true, 4) 
                 AI_EVIDENCE[button] = true
             end
             

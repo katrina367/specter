@@ -55,7 +55,8 @@ events.Hunt.OnClientEvent:Connect(function()
     Hunting = not Hunting
     
     if Hunting then
-        
+        Notification.new("error", "Hunting Detected!", "Defenses Running..", true, 4) 
+
         repeat 
             rs.RenderStepped:Wait()
             
