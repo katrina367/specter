@@ -149,6 +149,7 @@ function PutEvidence(button : string)
     if AI_EVIDENCE[tostring(button)] == true then 
         return
     end
+    
     local EvidenceBox = EvidencePath:FindFirstChild(tostring(button))
 
     for _, signal in pairs(getconnections(EvidenceBox.Box.Activated)) do

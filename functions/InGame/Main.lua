@@ -16,8 +16,6 @@ AI_EVIDENCE = {
 
 local WaypointRemote = events:WaitForChild("Waypoint")
 
-
-
 loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/GameFunctions.lua"))()
 
 local LightSwitches = WS.Map.Lightswitches:GetChildren()
@@ -29,13 +27,17 @@ end
 
 for _, v in pairs(LightSwitches) do
     v:GetAttributeChangedSignal("On"):Connect(function()
-        while v:GetAttribute("On") == true do
-            coroutine.wrap(fireLight)(v)
+        task.wait(0.5)
+        if v:GetAttribute("On") == false then return end
+        repeat coroutine.wrap(fireLight)(v)
             task.wait(2)
-        end
+        until v:GetAttribute("On") == false
     end)
     rs.RenderStepped:Wait()
-    coroutine.wrap(fireLight)(v)
+    if v:GetAttribute("On") == true then
+        task.wait(0.2)
+        coroutine.wrap(fireLight)(v)
+    end
 end
 
 local function waypoint()
