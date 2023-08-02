@@ -20,7 +20,7 @@ events = rep.Events
 local LobbyId = 8267733039
 local GameId = 8417221956
 
-Notification.new("success", "Specter Autofarm V1.2.4 ALPHA", "Made by Drastic", true, 3)
+Notification.new("success", "Specter Autofarm V1.2.5 ALPHA", "Made by Drastic", true, 3)
 
 if game.PlaceId == LobbyId then
     task.wait(1)
