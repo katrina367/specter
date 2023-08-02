@@ -4,7 +4,7 @@ repeat task.wait() until game:IsLoaded()
 Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Extra/Notifications.lua", true))()
 
 Players = game:GetService("Players")
-plr = Players:WaitForChild("LocalPlayer")
+plr = Players.LocalPlayer
 
 for _, v in next, getconnections(plr.Idled) do
     v:Disable()
