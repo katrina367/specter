@@ -1,10 +1,9 @@
 Char.ChildAdded:Connect(function(child)
-    if child.Name == "Tool" then
-        if plr:GetAttribute("Tool") == "EMF Reader" then
-            child.Main:FindFirstChild("EMF 5").GetPropertyChangedSignal:Connect(function()
-                PutEvidence("EMF 5")
-            end)
-        end
+    task.wait(0.1)
+    if child.Name == "Tool" and plr:GetAttribute("Tool") == "EMF Reader" then
+        child.Main:FindFirstChild("EMF 5"):GetPropertyChangedSignal("Playing"):Connect(function()
+            PutEvidence("EMF 5")
+        end)
     end
 end)
 
