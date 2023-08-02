@@ -40,7 +40,7 @@ end
 for _, v in pairs(LightSwitches) do
     v:GetAttributeChangedSignal("On"):Connect(function()
         if v:GetAttribute("On") == true then
-            repeat rs.RenderStepped:Wait()
+            repeat task.wait(2)
             coroutine.wrap(fireLight)(v)
             until v:GetAttribute("On") == false
         end
