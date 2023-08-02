@@ -17,7 +17,7 @@ local Camera = WS.CurrentCamera
 local VAN_BUTTON = WS.Van.Close
 local VAN_KEY = WS.Van.Key
 
-VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
+VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-2)
 
 task.wait(1)
 

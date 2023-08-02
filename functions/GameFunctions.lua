@@ -170,9 +170,10 @@ function PutEvidence(button : string)
                     delay(5, function()
                         Notification.new("success", "Leaving", "Ghost Guessed: " .. ghost, true, 4) 
                         while true do
-                            VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
-                            rs.RenderStepped:Wait()
+                            VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-2)
+                            task.wait(0.2)
                             Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+                            task.wait(0.2)
                             fireproximityprompt(WS.Van.Close.VanPrompt)
                         end
                     end)                    
@@ -206,3 +207,4 @@ function PlaceItem(Item : string, PlaceAtCharacter : bool)
     end)
 end
 
+Notification.new("success", "Functions", "Successfully loaded!", true, 3)

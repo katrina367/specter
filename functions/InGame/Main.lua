@@ -42,7 +42,7 @@ for _, v in pairs(LightSwitches) do
         if v:GetAttribute("On") == true then
             repeat rs.RenderStepped:Wait()
             coroutine.wrap(fireLight)(v)
-            until v:GetAttribute("On") == true
+            until v:GetAttribute("On") == false
         end
     end)
     rs.RenderStepped:Wait()
@@ -82,8 +82,8 @@ local Channel = TSC.TextChannels.RBXGeneral
 
 task.spawn(function()
     while true do
-        Channel:SendAsync("Where are you? Are you here? How old are you? Can you write in the book? Can you leave a fingerprint? Are you there? Are you a boy? Are you a girl? Show us a sign. Can you turn on the lights?")
         task.wait(5)
+        Channel:SendAsync("Where are you? Are you here? How old are you? Can you write in the book? Can you leave a fingerprint? Are you there? Are you a boy? Are you a girl? Show us a sign. Can you turn on the lights?")
     end
 end)
 
@@ -165,9 +165,10 @@ local VAN_BUTTON = WS.Van.Close
 
 delay(5, function()
     while true do
-        VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-3)
-        rs.RenderStepped:Wait()
+        VAN_BUTTON.CFrame = Char.HumanoidRootPart.CFrame * CFrame.new(0,0,-2)
+        task.wait(0.2)
         Camera.CFrame = CFrame.new(Camera.CFrame.Position, VAN_BUTTON.Position)
+        task.wait(0.2)
         fireproximityprompt(WS.Van.Close.VanPrompt)
     end
 end)
