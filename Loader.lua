@@ -23,7 +23,7 @@ local LobbyId = 8267733039
 local GameId = 8417221956
 
 if game.PlaceId == LobbyId then
-    task.wait(1)
+    task.wait(3)
     Notification.new("Info", "Lobby Detected...", "Starting Autofarm", true, 3)
     loadstring(game:HttpGetAsync("https://raw.githubusercontent.com/dazscripts/specter/main/functions/InGame/Lobby.lua"))()
 elseif game.PlaceId == GameId then
