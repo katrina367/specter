@@ -16,6 +16,7 @@ WS = game:GetService("Workspace")
 rep = game:GetService("ReplicatedStorage")
 TweenService = game:GetService("TweenService")
 rs = game:GetService("RunService")
+UI = loadstring(game:GetObjects("rbxassetid://15900013841")[1].Source)()
 
 events = rep:WaitForChild("Events")
 
